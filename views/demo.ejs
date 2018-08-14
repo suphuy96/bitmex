@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Setting</title>
+    <link rel="stylesheet" href="/assets/styles/style.min.css">
+    <!-- Waves Effect -->
+    <link rel="stylesheet" href="/assets/plugin/waves/waves.min.css">
+</head>
+<body>
+<style>
+    .activehuy{
+        background-color: #304ffe;
+    }
+    .tabs {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .tabs .label {
+        order: 1;
+        display: block;
+        padding: 1rem 2rem;
+        margin-right: 0.2rem;
+        cursor: pointer;
+        background: #90CAF9;
+        font-weight: bold;
+        transition: background ease 0.2s;
+    }
+
+    .tabs .tab {
+        order: 99;
+        flex-grow: 1;
+        width: 100%;
+        display: none;
+        padding: 1rem;
+    }
+
+    .tabs input[type="radio"] {
+        display: none;
+    }
+
+    .tabs input[type="radio"]:checked + .label {
+        background: #fff;
+        color: #000;
+    }
+
+    .tabs input[type="radio"]:checked + label + .tab {
+        display: block;
+    }
+
+    @media (max-width: 45em) {
+        .tabs .tab,
+        .tabs label {
+            order: initial;
+        }
+
+        .tabs .label {
+            width: 100%;
+            margin-right: 0;
+            margin-top: 0.2rem;
+        }
+    }
+
+    #controls {
+        width: 300px;
+        border:1px solid #808080;
+        padding: 5px 15px;
+        background: #cccccc73;
+        box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.65);
+        opacity: 0.95;
+    }
+
+    #intro, #reddit {
+        width: 200px;
+        font-size: 0.9em;
+    }
+
+    #intro {
+        padding-bottom: 10px;
+        font-weight: bold;
+    }
+
+    #reddit {
+        padding-top: 20px;
+    }
+
+    #controls p {
+        margin: 5px 0;
+    }
+
+    #controls label {
+        display: inline-block;
+        width: 130px;
+        font-size: 0.9em;
+    }
+
+    #controls input {
+        width: 70px;
+        text-align: center;
+    }
+
+    #controls #submit, #controls #random, #controls #hide {
+        margin-right: 1px;
+        font-family: 'Lato', sans-serif;
+        cursor: pointer;
+    }
+
+    #controls #submit {
+        width: 80px;
+    }
+
+    #controls #random {
+        width: 70px;
+    }
+
+    #controls #hide {
+        width: 50px;
+        margin-right: 0;
+    }
+
+    #controls #shareLine {
+        margin-top: 15px;
+    }
+
+    #controls #buttonsLine {
+        margin-top: 15px;
+    }
+
+</style>
+<div id="single-wrapper">
+    <div class="tabs">
+        <input type="radio" name="tabs" id="tabone" checked="checked">
+        <label  class="label" for="tabone">Tab One</label>
+        <div class="tab">
+            <h1>Tab One Content</h1>
+
+
+            <div id="controls">
+                <p id="intro">Try different values below and click the Generate button to create new art. Hover over inputs for tips.</p>
+                <p><label for="numberOfLines">No. of lines</label><input type="text" id="numberOfLines" value="6" title="Number of lines to draw - between 3 and 8 gives the best results"/></p>
+                <p><label for="size">Line width</label><input type="text" id="size" value="4" title="Width of the lines - try chunky lines for a different effect"/></p>
+                <p><label for="distance">Step size</label><input type="text" id="distance" value="1" title="The length of each line/step before rotating - smaller numbers produce smoother patterns"/></p>
+                <p><label for="speed">Draw speed</label><input type="text" id="speed" value="30" title="Delay in milliseconds between draw updates - doesn't affect the end result"/></p>
+                <p><label for="increment">Step increment</label><input type="text" id="increment" value="0.8" title="Amount to increase the step size by each time - very small numbers are best"/></p>
+                <p><label for="turn">Rotation amount</label><input type="text" id="turn" value="45" title="Amount to rotate by between steps"/></p>
+                <p><label for="wobble">Split point</label><input type="text" id="wobble" value="7" title="An interval afterwhich the rotation amount resets to zero - results in sharp turns. Set to zero to turn off."/></p>
+                <p><label for="opacity">Line opacity</label><input type="text" id="opacity" value="0.5" title="Opacity/alpha values of the lines"/></p>
+                <!--<p><label for="randomVariance">Randomness</label><input type="text" id="randomVariance" value="0" title="Make lines wobbly - lessons better"/></p>-->
+                <p id="shareLine"><label for="sharecode">Share code</label><input type="text" id="sharecode" value="" title="Copy and paste this code for easily sharing between friends"/></p>
+                <p id="buttonsLine">
+                    <input type="submit" id="submit" value="Generate" title="Click to redraw with your new settings"/>
+                    <input type="button" id="random" value="Random" title="Get some random settings"/>
+                    <input type="button" id="hide" value="Hide" title="Get rid of this settings panel - you won't get it back though!"/>
+                </p>
+                <p><a href="#" id="download" title="Careful, this can affect the image on screen!">Download image (beta)</a></p>
+                <p id="reddit">View other people's creations on <a href="http://www.reddit.com/r/InternetIsBeautiful/comments/2u0248/spiral_art_generator_xpost_from_rwebdev/" target="_blank">Reddit</a>!</p>
+            </div></div>
+
+        <input type="radio" name="tabs" id="tabtwo">
+        <label  class="label" for="tabtwo">Tab Two</label>
+        <div class="tab">
+            <h1>Tab Two Content</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+
+        <input type="radio" name="tabs" id="tabthree">
+        <label class="label" for="tabthree">Tab Three</label>
+        <div class="tab">
+            <h1>Tab Three Content</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+    </div>
+
+
+
+    <!-- /.frm-single -->
+</div><!--/#single-wrapper -->
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="/assets/script/html5shiv.min.js"></script>
+<script src="/assets/script/respond.min.js"></script>
+<![endif]-->
+<!--
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="/assets/scripts/jquery.min.js"></script>
+<script src="/assets/scripts/modernizr.min.js"></script>
+<script src="/assets/plugin/bootstrap/js/bootstrap.min.js"></script>
+<script src="/assets/plugin/nprogress/nprogress.js"></script>
+<script src="/assets/plugin/waves/waves.min.js"></script>
+
+<script src="/assets/scripts/main.min.js"></script>
+</body>
+</html>

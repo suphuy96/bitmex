@@ -1,0 +1,33 @@
+
+for (let i = ArSMA20.length - 1; i > ArSMA20.length - 5; i--) {
+console.log("___ lặp __")
+if (ArSMA20[i][1] - ArSMA20[i - 1][1] > 0 || (ArSMA20[i][2] - ArSMA20[i - 1][1] > -gdcp && CurrentTrend.sma.sma20.count > 0)) {
+if (CurrentTrend.sma.sma20.count == 0 || CurrentTrend.sma.sma20.trend == "TANG") {
+CurrentTrend.sma.sma20.count++;
+CurrentTrend.sma.sma20.trend = "TANG";
+console.log("___ tăng __")
+
+CurrentTrend.sma.sma20.value += ArSMA20[i][1] - ArSMA20[i - 1][1];
+} else {
+console.log("___ br1 __")
+
+break;
+}
+} else if (ArSMA20[i][1] - ArSMA20[i - 1][1] < 0 || (ArSMA20[i][1] - ArSMA20[i - 1][1] < gdcp && CurrentTrend.sma.sma20.count > 0)) {
+if (CurrentTrend.sma.sma20.count == 0 || CurrentTrend.middle.trend == "GIAM") {
+CurrentTrend.sma.sma20.count++;
+console.log("___ giảm __")
+
+CurrentTrend.sma.sma20.trend = "GIAM";
+CurrentTrend.sma.sma20.value += ArSMA20[i - 1][1] - ArSMA20[i][1];
+} else {
+console.log("___ brc __");
+
+break;
+}
+} else {
+break;
+}
+}
+
+

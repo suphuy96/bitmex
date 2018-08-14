@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Widgets - Ninja Admin Template</title>
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="assets/styles/style.min.css">
+
+    <!-- mCustomScrollbar -->
+    <link rel="stylesheet" href="assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css">
+
+    <!-- Waves Effect -->
+    <link rel="stylesheet" href="assets/plugin/waves/waves.min.css">
+
+    <!-- Sweet Alert -->
+    <link rel="stylesheet" href="assets/plugin/sweet-alert/sweetalert.css">
+
+    <!-- FullCalendar -->
+    <link rel="stylesheet" href="assets/plugin/fullcalendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="assets/plugin/fullcalendar/fullcalendar.print.css" media='print'>
+
+    <!-- Color Picker -->
+    <link rel="stylesheet" href="assets/color-switcher/color-switcher.min.css">
+    <script src="assets/scripts/jquery.min.js"></script>
+    <script src="assets/scripts/modernizr.min.js"></script>
+    <script src="assets/plugin/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="assets/plugin/nprogress/nprogress.js"></script>
+    <script src="assets/plugin/sweet-alert/sweetalert.min.js"></script>
+    <script src="assets/plugin/waves/waves.min.js"></script>
+    <script src="assets/plugin/fullscreen/jquery.fullscreen-min.js"></script>
+</head>
+<style type="text/css">
+    .tabcon{
+        margin-top: 80px;
+    }
+    .activehuy{
+        color:#fff;
+        background-color: #9ea3be9c;
+    }
+</style>
+<body>
+<div class="tab-wrapper">
+    <div class="main-menu">
+        <header class="header">
+            <a href="index.html" class="logo">Bot bitmex</a>
+            <button type="button" class="button-close fa fa-times js__menu_close"></button>
+            <div class="user">
+                <a href="#" class="avatar"><img src="/assets/avr.jpg" alt=""><span class="status online"></span></a>
+                <h5 class="name"><a href="/about">huyquansu</a></h5>
+                <h5 class="position">Administrator</h5>
+                <!-- /.name -->
+                <div class="control-wrap js__drop_down">
+                    <i class="fa fa-caret-down js__drop_down_button"></i>
+                    <div class="control-list">
+                        <div class="control-item"><a href="/about"><i class="fa fa-user"></i> Profile</a></div>
+                        <div class="control-item"><a href="#"><i class="fa fa-gear"></i> Settings</a></div>
+                        <div class="control-item"><a href="#"><i class="fa fa-sign-out"></i> Log out</a></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="content">
+
+            <div class="navigation">
+                <h5 class="title">Navigation</h5>
+                <ul class="menu js__accordion tab-menu" >
+
+                    <li class="activehuy">
+                        <a class="waves-effect parent-item " href="#"><i class="menu-icon fa fa-home"></i><span>Home</span></a>
+                    </li>
+                    <li>
+                        <a class="waves-effect parent-item " href="#"><i class="menu-icon fa fa-flag"></i><span>Icons</span></a>
+                    </li>
+                    <li>
+                        <a class="waves-effect parent-item " href="#"><i class="menu-icon fa fa-adjust"></i><span>User Interface</span><span class="menu-arrow fa fa-angle-down"></span></a>
+                    </li>
+                    <li class="current">
+                        <a class="waves-effect" href="widgets.html"><i class="menu-icon fa fa-code"></i><span>Widgets</span><span class="notice notice-yellow">6</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="fixed-navbar">
+        <div class="pull-left">
+            <button type="button" class="menu-mobile-button glyphicon glyphicon-menu-hamburger js__menu_mobile"></button>
+            <h1 class="page-title" id="page-title">Setting</h1>
+        </div>
+        <div class="pull-right">
+            <a href="#" class="ico-item fa fa-power-off js__logout"></a>
+        </div>
+    </div>
+    <!-- /.fixed-navbar -->
+
+
+    <div id="wrapper">
+        <div class="main-content tab-content" style="padding-bottom: 10px;">
+            <div class="tabcon">
+                <link rel="stylesheet" href="/style.css">
+                <script src="/socket.io/socket.io.js"></script>
+                <!-- Waves Effect -->
+                <link rel="stylesheet" href="/assets/plugin/waves/waves.min.css">
+                <script src="../../code/highstock.js"></script>
+                <script src="../../code/modules/annotations.js"></script>
+                <script src="../../code/modules/drag-panes.js">
+
+                </script>
+                <script src="/code/modules/data.js"></script>
+                <!--<script src="/coppy.js"></script>-->
+                <div id="" style="height: 100%;     ">
+                    <div id="demo" style="width: 70%; float: left;box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);">
+                        <div id="container-inner" style="height:600px"></div>
+                    </div>
+                    <div id="box-show" style="   box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    width: 28%;
+    margin: 0 1%;
+    height: 100%;
+    float: left;
+    background-color: white;">
+                        <div style="z-index: 200">
+                            <div class="numberprice shadow" style="margin-top: 10px;border-radius: 7px">
+                                <span class="cycle">0 1 2 3 4 5 6 7 8 9</span>
+                                <span class="cycle">0 1 2 3 4 5 6 7 8 9</span>
+                                <span class="cycle">0 1 2 3 4 5 6 7 8 9</span>
+                                <span class="cycle">0 1 2 3 4 5 6 7 8 9</span>
+                                <span>,</span>
+                                <span class="cycle">0 1 2 3 4 5 6 7 8 9</span>
+                                <span>$</span>
+                            </div>
+                            <div style="width: 60px;margin: 0 auto;">
+                                <span id="UpDown" style="font-size: 40px;">🔸</span>
+                            </div>
+                        </div>
+                        <div>
+                           
+
+
+                        </div>
+
+                    </div>
+                    <script type="text/javascript">
+
+                        var advOptions = {};
+                        var Chartne = {};
+                        var RTLog = true;
+                        var Datavolume = [];
+                        advOptions = {
+                            chart: {
+                                type: 'candlestick',
+                                plotBackgroundColor: 'transparent',
+                            },
+                            plotOptions: {
+                                series: {
+                                    marker: {
+                                        enabled: false
+                                    },
+                                    dataGrouping: {
+                                        enabled: false
+                                    },
+                                    point: {}
+                                }
+                            },
+                            tooltip: {
+                                style: {
+                                    width: '200px'
+                                },
+                                valueDecimals: 2,
+                                shared: true
+                            },
+
+                            rangeSelector: {
+                                buttonPosition: {
+                                    align: 'center',
+                                    x: 0,
+                                    y: 0
+                                },
+                                inputPosition: {
+                                    y: 0,
+                                    align: 'right',
+                                    x: -90
+                                },
+                                buttonTheme: {
+                                    fill: '#ffffff',
+                                    stroke: '#cccccc',
+                                    'stroke-width': 0,
+                                    width: '10px',
+                                    style: {
+                                        color: '#707070'
+                                    },
+                                    states: {
+                                        hover: {
+                                            fill: '#fff',
+                                            style: {
+                                                fontWeight: 'normal',
+                                                color: '#333333'
+                                            }
+                                        },
+                                        select: {
+                                            fill: '#fff',
+                                            style: {
+                                                fontWeight: 'normal',
+                                                color: '#29ABE2'
+                                            }
+                                        }
+                                    }
+                                },
+                                selected: 1,
+                                buttons: [
+                                    {
+                                        type: 'minute',
+                                        count: 30,
+                                        text: '30 '
+                                    }, {
+                                        type: 'minute',
+                                        count: 40,
+                                        text: '40 '
+                                    }, {
+                                        type: 'minute',
+                                        count: 60,
+                                        text: '60'
+                                    }, {
+                                        type: 'minute',
+                                        count: 120,
+                                        text: '120 '
+                                    }, {
+                                        type: 'minute',
+                                        count: 240,
+                                        text: '240'
+                                    }, {
+                                        type: 'all',
+                                        text: 'All'
+                                    }]
+                            },
+
+                            yAxis: [{
+                                height: '80%',
+                                resize: {
+                                    enabled: true,
+                                    controlledAxis: {
+                                        next: [1]
+                                    },
+                                    lineWidth: 4
+                                }
+                            }, {
+                                top: '80%',
+                                height: '20%',
+                                id: 'rsi'
+                            }],
+
+                            series: [{
+                                cropThreshold: 0,
+                                id: 'main',
+                                name: 'AAPL',
+                                data: [],
+                                tooltip: {
+                                    split: true,
+                                    valueDecimals: 2
+                                }
+                            },
+                                {
+                                    linkedTo: 'main',
+                                    type: 'column',
+                                    name: 'Volume',
+                                    id: 'volume',
+                                    color: "#15ff95",
+                                    data: [],
+                                    yAxis: 1
+
+                                }, {
+                                    linkedTo: 'main',
+                                    id: "flag",
+                                    type: 'flags',
+                                    data: [],
+                                    onSeries: 'main',
+                                    color: "#050fff",
+                                    height: 1,
+                                    width: 1,
+                                    yAxis: 0
+                                }, {
+                                    linkedTo: 'main',
+                                    type: 'line',
+                                    data: [],
+                                    name: 'BB BOTTOM',
+
+                                    color: "#0049ff",
+                                    yAxis: 0
+                                }, {
+                                    linkedTo: 'main',
+                                    type: 'line',
+                                    data: [],
+                                    name: 'SMA 20',
+
+                                    color: "#ff6f25",
+                                    yAxis: 0
+                                }, {
+                                    linkedTo: 'main',
+                                    type: 'line',
+                                    data: [],
+                                    name: 'BB TOP',
+
+                                    color: "#0049ff",
+                                    yAxis: 0
+                                }, {
+                                    linkedTo: 'main',
+                                    type: 'line',
+                                    data: [],
+                                    name: 'SMA 10',
+
+                                    color: "#ffc004",
+                                    yAxis: 0
+                                }, {
+                                    linkedTo: 'main',
+                                    type: 'line',
+                                    data: [],
+                                    name: 'SMA 20',
+
+                                    color: "#6affa9",
+                                    yAxis: 0
+                                }, {
+                                    linkedTo: 'main',
+                                    id: "flag",
+                                    type: 'flags',
+                                    data: [],
+                                    onSeries: 'main',
+                                    color: "#ffea00",
+                                    height: 16,
+                                    width: 16,
+                                    yAxis: 0
+                                }]
+                        };
+                        //
+                        (function (H) {
+                            H.getChartById = function (id) {
+                                return H.charts[document.getElementById(id)
+                                    .getAttribute('data-highcharts-chart')];
+                            };
+                        }(Highcharts));
+                        window.addEventListener('resize', function () {
+                            var body = document.body,
+                                html = document.documentElement;
+                            var height = Math.max(body.scrollHeight, body.offsetHeight,
+                                html.clientHeight, html.scrollHeight, html.offsetHeight);
+                            height -= 40;
+                            console.log(height)
+                            document.getElementById('container-inner').style.height = height-150 + 'px';
+                            Highcharts.getChartById('container-inner').setSize(
+                                undefined,
+                                height-150,
+                                false
+                            );
+                        });
+                        var toast = function (msg, boo) {
+                            this.backgroundColor = '#06569a';
+                            if (boo)
+                                this.backgroundColor = '#ff0000';
+                            this.textColor = '#DDD';
+                            this.toastTime = 0;
+                            if (_("toast_div") && _("toast_div").style.display != "none") {
+                                clearTimeout(toastTime);
+                            }
+                            if (!(_("toast_div"))) {
+                                var div = document.createElement("div");
+                                div.setAttribute("id", "toast_div");
+                                div.style.minWidth = "5em";
+                                div.style.backgroundColor = this.backgroundColor;
+                                div.style.borderRadius = "3px";
+                                div.style.position = "fixed";
+                                div.style.bottom = "54%";
+                                div.style.right = "2%";
+                                // div.style.zIndex="4523453258";
+                                div.style.padding = "1em";
+                                div.style.zIndex = "4523453258";
+                                div.style.webkitAnimation = "popup 0.2s ease-in-out";
+                                div.style.animation = "popup 0.2s ease-in-out";
+                                var p = document.createElement("p");
+                                p.setAttribute("id", "toast_p");
+                                p.style.color = this.textColor;
+                                p.style.width = "100%";
+                                p.style.margin = "0%";
+                                p.style.display = "inline";
+                                p.style.fontFamily = "Arial";
+                                div.style.boxShadow = "0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)";
+                                var text = document.createTextNode(msg);
+                                p.appendChild(text);
+                                div.appendChild(p);
+                                document.body.appendChild(div);
+                                div.style.transition = "all 0.2s ease-in";
+                            } else {
+                                if (_("toast_div").style.display != "none") {
+                                    _("toast_div").style.display = "none";
+                                }
+                                _("toast_p").innerHTML = msg;
+                            }
+                            _("toast_div").style.display = "block";
+                            this.toastTime = setTimeout(function () {
+                                _("toast_div").style.display = "none";
+                            }, 3000);
+
+                            function _(key) {
+                                return document.getElementById(key);
+                            }
+                        }
+
+                        var socket = io();
+                        var isRealtime = true;
+                        var typing = false;
+                        var thu = {username: "asdfsdaf", type: 1};
+                        socket.emit('add user', thu);
+                        var index = -1;
+                        var ClientData = [];
+                        var IsShowToast = true;
+                        socket.on('datatrade1m', function (data) {
+                            Datavolume = [];
+                            // console.log(data)
+                            if (!isNaN(Chartne))
+                                Chartne.clear();
+                            let ggg = [];
+                            for (let i = 0; i < data.data.length; i++) {
+                                Datavolume.push([data.data[i][0], data.data[i][5]]);
+                            }
+                            var bienduoi = [];
+                            var biengiua = [];
+                            var bientren = [];
+                            var ArBollinger = data.Bollinger;
+                            for (let i = 0; i < ArBollinger.length; i++) {
+                                bienduoi.push([ArBollinger[i][0], ArBollinger[i][3]]);
+                                biengiua.push([ArBollinger[i][0], ArBollinger[i][2]]);
+                                bientren.push([ArBollinger[i][0], ArBollinger[i][1]]);
+                            }
+                            advOptions.series[6].data = data.Sma10;
+                            // advOptions.series[6].data =[];
+                            advOptions.series[7].data = [];
+                            advOptions.series[8].data = [];
+                            advOptions.series[7].data = data.Sma20;
+                            data = JSON.stringify(data.data);
+                            data = data.replace(/\/\*.*\*\//g, '');
+                            data = JSON.parse(data);
+                            advOptions.series[0].data = data;
+                            advOptions.series[1].data = Datavolume;
+                            advOptions.series[2].data = ggg;
+                            advOptions.series[3].data = bienduoi;
+                            // advOptions.series[4].data = biengiua;
+                            advOptions.series[5].data = bientren;
+
+                            // advOptions.series = [advOptions.series[0], advOptions.series[1], advOptions.series[2],advOptions.series[3]];
+                            Chartne = Highcharts.stockChart('container-inner', Highcharts.extend({}, advOptions));
+                            var body = document.body,
+                                html = document.documentElement;
+                            var height = Math.max(body.scrollHeight, body.offsetHeight,
+                                html.clientHeight, html.scrollHeight, html.offsetHeight);
+                            height -= 40;
+                            console.log(height)
+
+                            document.getElementById('box-show').style.height = (height-150) + 'px';
+                            document.getElementById('container-inner').style.height = height-150 + 'px';
+                            Highcharts.getChartById('container-inner').setSize(
+                                undefined,
+                                height-150,
+                                false
+                            );
+                        });
+
+                        socket.on('disconnect', function () {
+                            console.log('mất kết nối');
+                        });
+
+                        socket.on('reconnect', function () {
+                            console.log('kết nối lại');
+                            socket.emit('add user', thu);
+                        });
+                        socket.on('reconnect_error', function () {
+                            console.log('không thể kết nối');
+                        });
+                        var min = 1;
+                        var max = 9;
+                        var unit = -50;
+                        $(".cycle").each(function (index, el) {
+                            var rnd = Math.floor(Math.random() * (max - min + 1)) + min;
+                            $(el).css('top', rnd * unit);
+                        });
+                        socket.on('trade1m', function (datane) {
+                            // console.log(datane)
+                            var data = datane.data;
+                            console.log(datane)
+                            if (isRealtime) {
+                                Chartne.series[6].addPoint(datane.Sma10, true, Chartne.series[6].data.length);
+                                Chartne.series[7].addPoint(datane.Sma20, true, Chartne.series[7].data.length);
+                                Chartne.series[3].addPoint([datane.Bollinger[0], datane.Bollinger[3]], true, Chartne.series[3].data.length);
+                                // Chartne.series[4].addPoint([datane.Bollinger[0], datane.Bollinger[2]], true, Chartne.series[4].data.length);
+                                Chartne.series[5].addPoint([datane.Bollinger[0], datane.Bollinger[1]], true, Chartne.series[5].data.length);
+
+                                Chartne.series[0].addPoint([data[0], data[1], data[2], data[3], data[4]], true, Chartne.series[0].data.length);
+                                Chartne.series[1].addPoint([data[0], data[5]], true, advOptions.series[0].data.length);
+                            } else {
+                                Chartne.series[6].addPoint(datane.Sma10);
+                                Chartne.series[7].addPoint(datane.Sma20);
+                                Chartne.series[3].addPoint([datane.Bollinger[0], datane.Bollinger[3]]);
+                                // Chartne.series[4].addPoint([datane.Bollinger[0], datane.Bollinger[2]]);
+                                Chartne.series[5].addPoint([datane.Bollinger[0], datane.Bollinger[1]]);
+
+                                Chartne.series[0].addPoint([data[0], data[1], data[2], data[3], data[4]]);
+                                Chartne.series[1].addPoint([data[0], data[5]]);
+                            }
+
+                            // Chartne.re
+                        });
+
+                        //
+                        // socket.on("getdataToast", function (data) {
+                        //
+                        //
+                        // });
+
+                        socket.on("Toast", function (data) {
+                            if (RTLog) {
+                                // outputFor(data.name, [data.connent, +data.value], "INFO", new Date());
+                            }
+                            if (IsShowToast)
+                                Chartne.series[2].addPoint({
+                                    x: new Date(data.time).getTime(),
+                                    y: data.y,
+                                    title: ".",
+                                    text: data.name + " - " + data.connent + " \n value" + data.value,
+                                    color: "#0014ff",
+                                    fillColor: Highcharts.getOptions().colors[0],
+                                    width: 16,
+                                    style: {
+                                        color: '#ffe510'
+                                    },
+                                    states: {
+                                        hover: {
+                                            fillColor: '#395C84'
+                                        }
+                                    },
+                                    shape: 'circlepin'
+                                }, true, Chartne.series[2].data.length);
+                        });
+                        var ClientToast;
+                        socket.on("AROrDer", function (data) {
+                            //
+                            console.log("aroder")
+                            console.log(data);
+
+
+                            if (RTLog) {
+
+                            }
+                            if (IsShowToast) {
+
+                                if (RTLog) {
+                                    // outputFor(data.name, ['Trend', string], "INFO", new Date());
+                                }
+                                for (let i = 0; i < data.length; i++) {
+                                    if (data[i] != null) {
+
+                                        var string = " Status : done" +
+                                            " price " + data[i].side + " : " + data[i].dataclose.open +
+                                            " price close : " + data[i].dataclose.close +
+                                            " countbet " + data[i].CountBet +
+                                            " trend ";
+                                        //
+                                        // Chartne.series[8].addPoint({
+                                        //     x: data[i].dataclose.TimeClose,
+                                        //     y: data[i].dataclose.close,
+                                        //     title: "C",
+                                        //     text: string,
+                                        //     color: "#ffffff",
+                                        //     fillColor: "#ffdd00",
+                                        //     width:8,
+                                        //     height: 8,
+                                        //     style: {
+                                        //         color: '#ffffff'
+                                        //     },
+                                        //     states: {
+                                        //         hover: {
+                                        //             fillColor: '#007584'
+                                        //         }
+                                        //     }         ,
+                                        //     shape: 'circlepin'
+                                        // });
+                                        Chartne.series[8].addPoint({
+                                            x: data[i].TimeOpen,
+                                            y: data[i].dataclose.open,
+                                            title: "O",
+                                            text: string,
+                                            color: "#ffffff",
+                                            fillColor: "#ffdd00",
+                                            width: 8,
+                                            height: 8,
+                                            style: {
+                                                color: '#ffffff'
+                                            },
+                                            states: {
+                                                hover: {
+                                                    fillColor: '#007584'
+                                                }
+                                            },
+                                            shape: 'circlepin'
+                                        });
+                                    }
+                                }
+
+                            }
+
+                        });
+                        socket.on("CurrentOrder", function (data) {
+                            console.log(data);
+                            if (RTLog) {
+                                // outputFor("Order", [data.toString()
+                              
+                            }
+                            if (IsShowToast) {
+
+                                if (RTLog) {
+                                    // outputFor(data.name, ['Trend', string], "INFO", new Date());
+                                }
+                                if (data.isOpen) {
+                                    console.log("ddang cos 1 order")
+                                    var stringtrend = "";
+                                    if (data.listtrend)
+                                        for (let i = 0; i < data.listtrend.length; i++) {
+                                            stringtrend += " " + data.listtrend[i];
+                                        }
+                                    var string = " Status : trading" +
+                                        " price " + data.side + " : " + data.dataclose.open +
+                                        " countbet " + data.CountBet +
+                                        " trend " + stringtrend;
+
+                                    Chartne.series[8].addPoint({
+                                        x: data.TimeOpen,
+                                        y: data.dataclose.open,
+                                        title: ".",
+                                        text: string,
+                                        color: "#ffffff",
+                                        fillColor: "#ff7aec",
+                                        width: 2,
+                                        height: 2,
+                                        style: {
+                                            color: '#ffdd00'
+                                        },
+                                        states: {
+                                            hover: {
+                                                fillColor: '#007584'
+                                            }
+                                        },
+                                        shape: 'circlepin'
+                                    });
+                                }
+
+                            }
+
+                        });
+
+                        socket.on("Trend1m", function (data) {
+                            if (IsShowToast) {
+                                var temmm = "";
+                                if (data.sma.type != "__") {
+                                    temmm = " 2 đường sma có dấu hiệu " + data.sma.type;
+                                }
+                                var string = "--sma10 nằm " + data.sma.trend + " sma20" +
+                                    " SMA10 hướng " + data.sma.sma10.trend + " v " + data.sma.sma10.value.toFixed(2) + " c " + data.sma.sma10.count +
+                                    " SMA20 hướng " + data.sma.sma20.trend + " v " + data.sma.sma20.value.toFixed(2) + " c " + data.sma.sma20.count
+                                    + data.sma.type +
+                                    " ________--Nến " + data.Nen.trend + " v " + data.Nen.value.toFixed(2) + " c " + data.Nen.count +
+                                    " Nến loại " + " v " + data.Nen.type +
+                                    " _____Volume " + " v " + data.Volume.size + " trend " + data.Volume.trend;
+                                if (RTLog) {
+                                    // outputFor(data.name, ['Trend', string], "INFO", new Date());
+                                }
+                                Chartne.series[2].addPoint({
+                                    x: new Date(data.time).getTime() + 20000,
+                                    y: data.y,
+                                    title: ".",
+                                    text: string,
+                                    color: "#ffffff",
+                                    fillColor: "#ff7aec",
+                                    width: 1,
+                                    height: 1,
+                                    style: {
+                                        color: '#ffffff'
+                                    },
+                                    states: {
+                                        hover: {
+                                            fillColor: '#007584'
+                                        }
+                                    }
+                                });
+                            }
+
+                        });
+
+                        socket.on("dataTrend1m", function (data) {
+                            console.log(data)
+                            if (IsShowToast)
+                                for (let i = 0; i < data.length; i++) {
+                                    var temmm = "";
+                                    if (data[i].sma.type != "__") {
+                                        temmm = " 2 đường sma có dấu hiệu " + data[i].sma.type;
+                                    }
+                                    var string = "----sma10 nằm " + data[i].sma.trend + " sma20 " +
+                                        " SMA10 hướng " + data[i].sma.sma10.trend + " v " + data[i].sma.sma10.value.toFixed(2) + " c " + data[i].sma.sma10.count +
+                                        " SMA20 hướng " + data[i].sma.sma20.trend + " v " + data[i].sma.sma20.value.toFixed(2) + " c " + data[i].sma.sma20.count +
+                                        temmm +
+                                        " ______-Nến " + data[i].Nen.trend + " v " + data[i].Nen.value.toFixed(2) + " c " + data[i].Nen.count +
+                                        " Nến loại" + " v " + data[i].Nen.type +
+                                        " Volume" + " v " + data[i].Volume.size + " trend " + data[i].Volume.trend;
+                                    Chartne.series[2].addPoint({
+                                        x: new Date(data[i].time).getTime() + 20000,
+                                        y: data[i].y,
+                                        title: ".",
+                                        text: string,
+                                        color: "#ffffff",
+                                        fillColor: "#ff7aec",
+                                        width: 1,
+                                        height: 1,
+                                        style: {
+                                            color: '#ffffff'
+                                        },
+                                        states: {
+                                            hover: {
+                                                fillColor: '#007584'
+                                            }
+                                        }
+                                    });
+                                }
+
+                        });
+                        socket.on("dataToast", function (data) {
+                            if (IsShowToast)
+                                for (let i = 0; i < data.length; i++) {
+
+                                    Chartne.series[2].addPoint({
+                                        x: new Date(data[i].time).getTime(),
+                                        y: '.',
+                                        title: data.type,
+                                        text: data[i].name + " - " + data[i].connent,
+                                        color: "#0014ff",
+                                        fillColor: Highcharts.getOptions().colors[0],
+                                        width: 16,
+                                        style: {
+                                            color: '#ffe510'
+                                        },
+                                        states: {
+                                            hover: {
+                                                fillColor: '#395C84'
+                                            }
+                                        },
+                                        shape: 'circlepin'
+                                    });
+                                }
+
+                        });
+                        socket.on("UpDown", function (data) {
+                            // console.log(data)
+                            if (data.TG == "GIAM") {
+                                if (RTLog) {
+                                    // outputFor("Giá", ["Giảm xuống :" + data.L], "INFO", new Date());
+                                }
+                                Chartne.series[2].addPoint({
+                                    x: new Date().getTime(),
+                                    y: data.Low,
+                                    title: '🔻',
+                                    text: "Giảm " + data.L,
+                                    color: "#0014ff",
+                                    fillColor: Highcharts.getOptions().colors[0],
+                                    width: 16,
+                                    style: {
+                                        color: '#ffe510'
+                                    },
+                                    states: {
+                                        hover: {
+                                            fillColor: '#395C84'
+                                        }
+                                    },
+                                    shape: 'circlepin'
+                                }, true, Chartne.series[2].data.length);
+                                toast("dấu hiệu :" + data.TG + " _độ lệch :" + data.L);
+                                document.getElementById("UpDown").innerHTML = "🔻";
+                            } else if (data.TG == "TANG") {
+                                if (RTLog) {
+                                    // outputFor("Giá", ["Tăng Lên :" + data.L], "INFO", new Date());
+                                }
+                                Chartne.series[2].addPoint({
+                                    x: new Date().getTime(),
+                                    y: data.High,
+
+                                    title: '🔺',
+                                    text: "tăng " + data.L,
+                                    color: "#0014ff",
+                                    fillColor: Highcharts.getOptions().colors[0],
+                                    width: 16,
+                                    style: {
+                                        color: '#ff8f68'
+                                    },
+                                    states: {
+                                        hover: {
+                                            fillColor: '#395C84' // darker
+                                        }
+                                    },
+                                    shape: 'circlepin'
+                                }, true, Chartne.series[2].data.length);
+                                toast("dấu hiệu :" + data.TG + " _độ lệch :" + data.L);
+                                document.getElementById("UpDown").innerHTML = "🔺";
+                            } else {
+                                if (RTLog) {
+                                    // outputFor("Giá", ["Đứng hoặc bấp bênh :" + data.L], "INFO", new Date());
+                                }
+                                // document.getElementById("UpDown").innerHTML=  "🔸";
+                            }
+                            setTimeout(function () {
+                                document.getElementById("UpDown").innerHTML = "🔸";
+                            }, 2000)
+                        });
+                        var tttt = false;
+                        setTimeout(function () {
+                            tttt = true;
+                        }, 5000)
+                        socket.on('trade', function (data) {
+                            document.title = data.price.close + "$ - AutoPrime";
+                            // toast("tiền hiện tại"+data.price,false)
+                            var Stringprice = data.price.close + "";
+                            var nene = "";
+                            if (Stringprice.length > 5) {
+                                nene = Stringprice.substring(0, 4) + Stringprice.substring(5, 6);
+                            } else {
+                                nene = Stringprice.substring(0, 4) + "0";
+                            }
+                            $(".cycle").each(function (index, el) {
+                                $(el).css('top', parseInt(nene.substring(index, index + 1)) * -50);
+                            });
+                        });
+         </script>
+                    <script src="/index.js"></script>
+                </div>
+            </div>
+            <div class="tabcon">
+
+                <div class="row small-spacing">
+                    <div class="col-lg-3 col-xs-12">
+                        <div class="box-content">
+                            <h4 class="box-title">Percent Circle</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else there</a></li>
+                                    <li class="split"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <div class="text-center">
+                                <div class="knob-wrap">
+                                    <input class="knob" data-width="150" data-height="150" data-bgColor="#ebeff2" data-fgColor="#304ffe" data-readOnly=true data-thickness=".4" value="45"  />
+                                </div>
+                                <!-- .knob-wrap -->
+                            </div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-3 col-xs-12 -->
+
+                    <div class="col-lg-3 col-xs-12">
+                        <div class="box-content">
+                            <h4 class="box-title">Percent Circle</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else there</a></li>
+                                    <li class="split"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <div class="text-center">
+                                <div class="knob-wrap">
+                                    <input class="knob" data-width="150" data-height="150" data-bgColor="#ebeff2" data-fgColor="#00bf4f" data-readOnly=true data-thickness=".4" value="87"  />
+                                </div>
+                                <!-- .knob-wrap -->
+                            </div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-3 col-xs-12 -->
+
+                    <div class="col-lg-3 col-xs-12">
+                        <div class="box-content">
+                            <h4 class="box-title">Percent Circle</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else there</a></li>
+                                    <li class="split"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <div class="text-center">
+                                <div class="knob-wrap">
+                                    <input class="knob" data-width="150" data-height="150" data-bgColor="#ebeff2" data-fgColor="#ffa000" data-readOnly=true data-thickness=".4" value="12"  />
+                                </div>
+                                <!-- .knob-wrap -->
+                            </div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-3 col-xs-12 -->
+
+                    <div class="col-lg-3 col-xs-12">
+                        <div class="box-content">
+                            <h4 class="box-title">Percent Circle</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else there</a></li>
+                                    <li class="split"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <div class="text-center">
+                                <div class="knob-wrap">
+                                    <input class="knob" data-width="150" data-height="150" data-bgColor="#ebeff2" data-fgColor="#f60e0e" data-readOnly=true data-thickness=".4" value="36"  />
+                                </div>
+                                <!-- .knob-wrap -->
+                            </div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-3 col-xs-12 -->
+
+                    <div class="col-lg-4 col-xs-12">
+                        <div class="box-content">
+                            <h4 class="box-title text-info">Site Traffic</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else there</a></li>
+                                    <li class="split"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <div class="content widget-stat">
+                                <div id="traffic-sparkline-chart-1" class="left-content margin-top-15"></div>
+                                <!-- /#traffic-sparkline-chart-1 -->
+                                <div class="right-content">
+                                    <h2 class="counter text-info">278</h2>
+                                    <!-- /.counter -->
+                                    <p class="text text-info">Some text here</p>
+                                    <!-- /.text -->
+                                </div>
+                                <!-- .right-content -->
+                            </div>
+                            <!-- /.content widget-stat -->
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-4 col-xs-12 -->
+
+                    <div class="col-lg-4 col-xs-12">
+                        <div class="box-content">
+                            <h4 class="box-title text-success">Site Traffic</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else there</a></li>
+                                    <li class="split"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <div class="content widget-stat">
+                                <div id="traffic-sparkline-chart-2" class="left-content margin-top-10"></div>
+                                <!-- /#traffic-sparkline-chart-2 -->
+                                <div class="right-content">
+                                    <h2 class="counter text-success">36%</h2>
+                                    <!-- /.counter -->
+                                    <p class="text text-success">Some text here</p>
+                                    <!-- /.text -->
+                                </div>
+                                <!-- .right-content -->
+                            </div>
+                            <!-- /.content widget-stat -->
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-4 col-xs-12 -->
+
+                    <div class="col-lg-4 col-xs-12">
+                        <div class="box-content">
+                            <h4 class="box-title text-success">Site Traffic</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else there</a></li>
+                                    <li class="split"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <div class="content widget-stat">
+                                <div id="traffic-sparkline-chart-3" class="left-content"></div>
+                                <!-- /#traffic-sparkline-chart-3 -->
+                                <div class="right-content">
+                                    <h2 class="counter text-danger">849 <i class="fa fa-angle-double-up"></i></h2>
+                                    <!-- /.counter -->
+                                    <p class="text text-danger">Some text here</p>
+                                    <!-- /.text -->
+                                </div>
+                                <!-- .right-content -->
+                            </div>
+                            <!-- /.content widget-stat -->
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-4 col-xs-12 -->
+                </div>
+                <!-- /.row small-spacing -->
+
+                <div class="row small-spacing">
+                    <div class="col-lg-3 col-md-6 col-xs-12">
+                        <div class="box-content">
+                            <div class="statistics-box with-icon">
+                                <i class="ico fa fa-apple text-inverse"></i>
+                                <h2 class="counter text-inverse">2561</h2>
+                                <p class="text">Some text here</p>
+                            </div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-3 col-md-6 col-xs-12 -->
+                    <div class="col-lg-3 col-md-6 col-xs-12">
+                        <div class="box-content">
+                            <div class="statistics-box with-icon">
+                                <i class="ico fa fa-android text-success"></i>
+                                <h2 class="counter text-success">3562</h2>
+                                <p class="text">Some text here</p>
+                            </div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-3 col-md-6 col-xs-12 -->
+                    <div class="col-lg-3 col-md-6 col-xs-12">
+                        <div class="box-content">
+                            <div class="statistics-box with-icon">
+                                <i class="ico fa fa-users text-primary"></i>
+                                <h2 class="counter text-primary">283</h2>
+                                <p class="text">Some text here</p>
+                            </div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-3 col-md-6 col-xs-12 -->
+                    <div class="col-lg-3 col-md-6 col-xs-12">
+                        <div class="box-content">
+                            <div class="statistics-box with-icon">
+                                <i class="ico fa fa-area-chart text-info"></i>
+                                <h2 class="counter text-info">241</h2>
+                                <p class="text">Some text here</p>
+                            </div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-3 col-md-6 col-xs-12 -->
+                </div>
+                <!-- .row -->
+
+                <div class="row small-spacing">
+                    <div class="col-lg-3 col-md-6 col-xs-12">
+                        <div class="box-content bg-success text-white">
+                            <div class="statistics-box with-icon">
+                                <i class="ico small fa fa-diamond"></i>
+                                <p class="text text-white">SUCCESS</p>
+                                <h2 class="counter">72943</h2>
+                            </div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-3 col-md-6 col-xs-12 -->
+                    <div class="col-lg-3 col-md-6 col-xs-12">
+                        <div class="box-content bg-info text-white">
+                            <div class="statistics-box with-icon">
+                                <i class="ico small fa fa-download"></i>
+                                <p class="text text-white">DOWNLOAD</p>
+                                <h2 class="counter">6382</h2>
+                            </div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-3 col-md-6 col-xs-12 -->
+                    <div class="col-lg-3 col-md-6 col-xs-12">
+                        <div class="box-content bg-danger text-white">
+                            <div class="statistics-box with-icon">
+                                <i class="ico small fa fa-bug"></i>
+                                <p class="text text-white">FIXED BUG</p>
+                                <h2 class="counter">12564</h2>
+                            </div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-3 col-md-6 col-xs-12 -->
+                    <div class="col-lg-3 col-md-6 col-xs-12">
+                        <div class="box-content bg-warning text-white">
+                            <div class="statistics-box with-icon">
+                                <i class="ico small fa fa-usd"></i>
+                                <p class="text text-white">SALES</p>
+                                <h2 class="counter">2,637</h2>
+                            </div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-3 col-md-6 col-xs-12 -->
+                </div>
+                <!-- .row -->
+
+
+            </div>
+            <div class="tabcon">
+                <div class="row small-spacing">
+                    <div class="col-lg-4 col-xs-12">
+                        <div class="box-content">
+                            <h4 class="box-title">Last Reviews</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else there</a></li>
+                                    <li class="split"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <div class="review-list">
+                                <div class="review-item">
+                                    <div class="top">
+                                        <div class="name">John Doe</div>
+                                        <!-- /.name -->
+                                        <div class="date">10 min</div>
+                                        <!-- /.date -->
+                                        <div class="star-rating text-warning">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-half-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </div>
+                                        <!-- /.star-rating -->
+                                    </div>
+                                    <!-- /.top -->
+                                    <div class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere.</div>
+                                    <!-- /.desc -->
+                                </div>
+                                <!-- /.review-item -->
+                                <div class="review-item">
+                                    <div class="top">
+                                        <div class="name">Harry Halen</div>
+                                        <!-- /.name -->
+                                        <div class="date">15 min</div>
+                                        <!-- /.date -->
+                                        <div class="star-rating text-warning">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </div>
+                                        <!-- /.star-rating -->
+                                    </div>
+                                    <!-- /.top -->
+                                    <div class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere.</div>
+                                    <!-- /.desc -->
+                                </div>
+                                <!-- /.review-item -->
+                                <div class="review-item">
+                                    <div class="top">
+                                        <div class="name">Thomas Taylor</div>
+                                        <!-- /.name -->
+                                        <div class="date">30 min</div>
+                                        <!-- /.date -->
+                                        <div class="star-rating text-warning">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <!-- /.star-rating -->
+                                    </div>
+                                    <!-- /.top -->
+                                    <div class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere.</div>
+                                    <!-- /.desc -->
+                                </div>
+                                <!-- /.review-item -->
+                                <div class="review-item">
+                                    <div class="top">
+                                        <div class="name">Helen Candy</div>
+                                        <!-- /.name -->
+                                        <div class="date">1 hour ago</div>
+                                        <!-- /.date -->
+                                        <div class="star-rating text-warning">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </div>
+                                        <!-- /.star-rating -->
+                                    </div>
+                                    <!-- /.top -->
+                                    <div class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere.</div>
+                                    <!-- /.desc -->
+                                </div>
+                                <!-- /.review-item -->
+                                <div class="review-item">
+                                    <div class="top">
+                                        <div class="name">Henny Betty</div>
+                                        <!-- /.name -->
+                                        <div class="date">1 day ago</div>
+                                        <!-- /.date -->
+                                        <div class="star-rating text-warning">
+                                            <i class="fa fa-star-half-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </div>
+                                        <!-- /.star-rating -->
+                                    </div>
+                                    <!-- /.top -->
+                                    <div class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere.</div>
+                                    <!-- /.desc -->
+                                </div>
+                                <!-- /.review-item -->
+                            </div>
+                            <!-- /.review-list -->
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-4 col-xs-12 -->
+                    <div class="col-lg-4 col-xs-12">
+                        <div class="box-content">
+                            <h4 class="box-title">Activity</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else there</a></li>
+                                    <li class="split"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <div class="bar bg-primary">
+                                        <div class="dot bg-primary"></div>
+                                        <!-- /.dot -->
+                                    </div>
+                                    <!-- /.bar -->
+                                    <div class="content">
+                                        <div class="date">10 min</div>
+                                        <!-- /.date -->
+                                        <div class="text">
+                                            Harry has finished "Amaza HTML" task
+                                        </div>
+                                        <!-- /.text -->
+                                    </div>
+                                    <!-- /.content -->
+                                </div>
+                                <!-- /.activity-item -->
+                                <div class="activity-item">
+                                    <div class="bar bg-danger">
+                                        <div class="dot bg-danger"></div>
+                                        <!-- /.dot -->
+                                    </div>
+                                    <!-- /.bar -->
+                                    <div class="content">
+                                        <div class="date">15 min</div>
+                                        <!-- /.date -->
+                                        <div class="text">
+                                            You completed your task
+                                        </div>
+                                        <!-- /.text -->
+                                    </div>
+                                    <!-- /.content -->
+                                </div>
+                                <!-- /.activity-item -->
+                                <div class="activity-item">
+                                    <div class="bar bg-success">
+                                        <div class="dot bg-success"></div>
+                                        <!-- /.dot -->
+                                    </div>
+                                    <!-- /.bar -->
+                                    <div class="content">
+                                        <div class="date">30 min</div>
+                                        <!-- /.date -->
+                                        <div class="text">
+                                            New updated has been installed
+                                        </div>
+                                        <!-- /.text -->
+                                    </div>
+                                    <!-- /.content -->
+                                </div>
+                                <!-- /.activity-item -->
+                                <div class="activity-item">
+                                    <div class="bar bg-violet">
+                                        <div class="dot bg-violet"></div>
+                                        <!-- /.dot -->
+                                    </div>
+                                    <!-- /.bar -->
+                                    <div class="content">
+                                        <div class="date">1 hour ago</div>
+                                        <!-- /.date -->
+                                        <div class="text">Write some comments</div>
+                                        <!-- /.text -->
+                                    </div>
+                                    <!-- /.content -->
+                                </div>
+                                <!-- /.activity-item -->
+                                <div class="activity-item">
+                                    <div class="bar bg-warning">
+                                        <div class="dot bg-warning"></div>
+                                        <!-- /.dot -->
+                                    </div>
+                                    <!-- /.bar -->
+                                    <div class="content">
+                                        <div class="date">1 day ago</div>
+                                        <!-- /.date -->
+                                        <div class="text">4 friends request accepted</div>
+                                        <!-- /.text -->
+                                    </div>
+                                    <!-- /.content -->
+                                </div>
+                                <!-- /.activity-item -->
+                                <div class="activity-item">
+                                    <div class="bar bg-orange">
+                                        <div class="dot bg-orange"></div>
+                                        <!-- /.dot -->
+                                    </div>
+                                    <!-- /.bar -->
+                                    <div class="content">
+                                        <div class="date">6 days ago</div>
+                                        <!-- /.date -->
+                                        <div class="text">Betty has joined your team</div>
+                                        <!-- /.text -->
+                                    </div>
+                                    <!-- /.content -->
+                                </div>
+                                <!-- /.activity-item -->
+                                <div class="activity-item">
+                                    <div class="bar bg-orange">
+                                        <div class="dot bg-orange"></div>
+                                        <div class="last-dot bg-orange"></div>
+                                        <!-- /.dot -->
+                                    </div>
+                                    <!-- /.bar -->
+                                    <div class="content">
+                                        <div class="date">12 days ago</div>
+                                        <!-- /.date -->
+                                        <div class="text">Daisy has joined your team</div>
+                                        <!-- /.text -->
+                                    </div>
+                                    <!-- /.content -->
+                                </div>
+                                <!-- /.activity-item -->
+                            </div>
+                            <!-- /.activity-list -->
+                            <a href="#" class="activity-link">View all activity <i class="fa fa-angle-down"></i></a>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-4 col-xs-12 -->
+                    <div class="col-lg-4 col-xs-12">
+                        <div class="box-content js__todo_widget">
+                            <h4 class="box-title">Todo</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else there</a></li>
+                                    <li class="split"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <div class="todo-list js__todo_list">
+                                <div class="todo-item">
+                                    <div class="checkbox"><input type="checkbox" id="todo-1"><label for="todo-1">Task To Do 1</label></div>
+                                    <!-- /.checkbox -->
+                                </div>
+                                <!-- /.todo-item -->
+                                <div class="todo-item">
+                                    <div class="checkbox primary"><input type="checkbox" id="todo-2"><label for="todo-2">Task To Do 2</label></div>
+                                    <!-- /.checkbox -->
+                                </div>
+                                <!-- /.todo-item -->
+                                <div class="todo-item">
+                                    <div class="checkbox info"><input type="checkbox" checked id="todo-3"><label for="todo-3">Task To Do 3</label></div>
+                                    <!-- /.checkbox -->
+                                </div>
+                                <!-- /.todo-item -->
+                                <div class="todo-item">
+                                    <div class="checkbox success"><input type="checkbox" id="todo-4"><label for="todo-4">Task To Do 4</label></div>
+                                    <!-- /.checkbox -->
+                                </div>
+                                <!-- /.todo-item -->
+                                <div class="todo-item">
+                                    <div class="checkbox danger"><input type="checkbox" checked id="todo-5"><label for="todo-5">Task To Do 5</label></div>
+                                    <!-- /.checkbox -->
+                                </div>
+                                <!-- /.todo-item -->
+                                <div class="todo-item">
+                                    <div class="checkbox success"><input type="checkbox" id="todo-6"><label for="todo-6">Task To Do 6</label></div>
+                                    <!-- /.checkbox -->
+                                </div>
+                                <!-- /.todo-item -->
+                                <div class="todo-item">
+                                    <div class="checkbox success"><input type="checkbox" id="todo-7"><label for="todo-7">Task To Do 7</label></div>
+                                    <!-- /.checkbox -->
+                                </div>
+                                <!-- /.todo-item -->
+                                <div class="todo-item">
+                                    <div class="checkbox success"><input type="checkbox" id="todo-8"><label for="todo-8">Task To Do 8</label></div>
+                                    <!-- /.checkbox -->
+                                </div>
+                                <!-- /.todo-item -->
+                                <div class="todo-item">
+                                    <div class="checkbox success"><input type="checkbox" id="todo-9"><label for="todo-9">Task To Do 9</label></div>
+                                    <!-- /.checkbox -->
+                                </div>
+                                <!-- /.todo-item -->
+                            </div>
+                            <!-- /.todo-list -->
+                            <div class="todo-form">
+                                <div class="input-group">
+                                    <input type="text" placeholder="Add new task" class="form-control js__todo_value">
+                                    <div class="input-group-btn"><button type="button" class="btn btn-success no-border text-white js__todo_button waves-effect waves-light"><i class="fa fa-plus"></i></button></div>
+                                    <!-- /.input-group-btn -->
+                                </div>
+                                <!-- /.input-group -->
+                            </div>
+                            <!-- /.todo-form -->
+                        </div>
+                        <!-- /.box-content .js__todo_form -->
+                    </div>
+                    <!-- /.col-lg-4 col-xs-12 -->
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                    <div class="col-lg-6 col-xs-12">
+                        <div class="box-content">
+                            <div id="calendar-widget"></div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-6 col-xs-12 -->
+                    <div class="col-lg-6 col-xs-12">
+                        <div class="box-content">
+                            <h4 class="box-title">Purchases</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                <a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Product</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else there</a></li>
+                                    <li class="split"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <table class="table table-striped margin-bottom-10">
+                                <thead>
+                                <tr>
+                                    <th style="width:40%;">Product</th>
+                                    <th>Price</th>
+                                    <th>Date</th>
+                                    <th>State</th>
+                                    <th style="width:5%;"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Amaza Themes</td>
+                                    <td>$71</td>
+                                    <td>Nov 12,2016</td>
+                                    <td class="text-success">Completed</td>
+                                    <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td>Macbook</td>
+                                    <td>$142</td>
+                                    <td>Nov 10,2016</td>
+                                    <td class="text-danger">Cancelled</td>
+                                    <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td>Samsung TV</td>
+                                    <td>$200</td>
+                                    <td>Nov 01,2016</td>
+                                    <td class="text-warning">Pending</td>
+                                    <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td>Ninja Admin</td>
+                                    <td>$200</td>
+                                    <td>Oct 28,2016</td>
+                                    <td class="text-warning">Pending</td>
+                                    <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td>Galaxy Note 5</td>
+                                    <td>$200</td>
+                                    <td>Oct 28,2016</td>
+                                    <td class="text-success">Completed</td>
+                                    <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td>CleanUp Themes</td>
+                                    <td>$71</td>
+                                    <td>Oct 22,2016</td>
+                                    <td class="text-success">Completed</td>
+                                    <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td>Facebook WP Plugin</td>
+                                    <td>$10</td>
+                                    <td>Oct 15,2016</td>
+                                    <td class="text-success">Completed</td>
+                                    <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td>Iphone 7</td>
+                                    <td>$100</td>
+                                    <td>Oct 12,2016</td>
+                                    <td class="text-warning">Pending</td>
+                                    <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td>Nova House</td>
+                                    <td>$100</td>
+                                    <td>Oct 12,2016</td>
+                                    <td class="text-warning">Pending</td>
+                                    <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td>Repair Cars</td>
+                                    <td>$35</td>
+                                    <td>Oct 12,2016</td>
+                                    <td class="text-warning">Pending</td>
+                                    <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <!-- /.table -->
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-6 col-xs-12 -->
+                </div>
+            </div>
+            <!-- /.row small-spacing -->
+            <div class="tabcon">
+                sdfasdfkjasd
+            </div>
+            <footer class="footer">
+                <ul class="list-inline">
+                    <li >2018 © HuyQuanSu.</li>
+                    <li><a href="https://www.facebook.com/huyquansu">about me</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+            </footer>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        var $wrapper = $('.tab-wrapper'),
+            $allTabs = $wrapper.find('.tab-content > div'),
+            $tabMenu = $wrapper.find('.tab-menu li'),
+            $line = $('<div class="line"></div>').appendTo($tabMenu);
+
+        $allTabs.not(':first-of-type').hide();
+        $tabMenu.filter(':first-of-type').find(':first').width('100%')
+
+        $tabMenu.each(function(i) {
+            $(this).attr('data-tab', 'tab'+i);
+        });
+
+        $allTabs.each(function(i) {
+            $(this).attr('data-tab', 'tab'+i);
+        });
+
+        $tabMenu.on('click', function() {
+
+            var dataTab = $(this).data('tab'),
+                $getWrapper = $(this).closest($wrapper);
+
+            $getWrapper.find($tabMenu).removeClass('activehuy');
+            $(this).addClass('activehuy');
+
+            $getWrapper.find('.line').width(0);
+            $(this).find($line).animate({'width':'100%'}, 'fast');
+            $getWrapper.find($allTabs).hide(200);
+            $getWrapper.find($allTabs).filter('[data-tab='+dataTab+']').show(200);
+        });
+
+    });//end ready
+</script>
+<!-- FullCalendar -->
+<script src="assets/plugin/moment/moment.js"></script>
+<script src="assets/plugin/fullcalendar/fullcalendar.min.js"></script>
+<script src="assets/scripts/fullcalendar.init.js"></script>
+<!-- Jquery Knob -->
+<script src="assets/plugin/knob/jquery.knob.min.js"></script>
+<script src="assets/scripts/jquery.knob.init.min.js"></script>
+<!-- Sparkline Chart -->
+<script src="assets/plugin/chart/sparkline/jquery.sparkline.min.js"></script>
+<script src="assets/scripts/chart.sparkline.init.min.js"></script>
+<script src="assets/scripts/main.min.js"></script>
+<script src="assets/color-switcher/color-switcher.min.js"></script>
+</body>
+</html>

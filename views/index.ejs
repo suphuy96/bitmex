@@ -1,0 +1,3277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bot bitmex</title>
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="assets/styles/style.min.css">
+
+    <!-- mCustomScrollbar -->
+    <link rel="stylesheet" href="assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="assets/plugin/toastr/toastr.css">
+
+
+    <!-- Waves Effect -->
+    <link rel="stylesheet" href="assets/plugin/waves/waves.min.css">
+
+    <!-- Sweet Alert -->
+    <link rel="stylesheet" href="assets/plugin/sweet-alert/sweetalert.css">
+
+    <!-- FullCalendar -->
+    <link rel="stylesheet" href="assets/plugin/fullcalendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="assets/plugin/fullcalendar/fullcalendar.print.css" media='print'>
+
+    <!-- Color Picker -->
+    <link rel="stylesheet" href="/assets/color-switcher/color-switcher.min.css">
+    <script src="/assets/scripts/jquery.min.js"></script>
+    <script src="/assets/scripts/modernizr.min.js"></script>
+    <script src="/assets/plugin/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/assets/plugin/nprogress/nprogress.js"></script>
+    <script src="/assets/plugin/sweet-alert/sweetalert.min.js"></script>
+    <script src="/assets/plugin/waves/waves.min.js"></script>
+    <script src="/assets/plugin/fullscreen/jquery.fullscreen-min.js"></script>
+    <!-- Toastr -->
+    <script src="/assets/plugin/toastr/toastr.min.js"></script>
+
+    //for me
+    <link rel="stylesheet" href="/style.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- Waves Effect -->
+    <link rel="stylesheet" href="/assets/plugin/waves/waves.min.css">
+    \
+    <link rel="stylesheet" href="/assets/plugin/x-editable/bootstrap3-editable/css/bootstrap-editable.css">
+
+    <script src="../../code/highstock.js"></script>
+    <script src="../../code/modules/annotations.js"></script>
+    <script src="../../code/modules/drag-panes.js">
+
+    </script>
+    <script src="/code/modules/data.js"></script>
+    <script src="/table/js/footable.min.js"></script>
+    <style src="/table/css/footable.bootstrap.css"></style>
+
+    <!-- FullCalendar -->
+    <script src="/assets/plugin/moment/moment.js"></script>
+    <script src="/assets/plugin/fullcalendar/fullcalendar.min.js"></script>
+    <script src="/assets/scripts/fullcalendar.init.js"></script>
+    <!-- Jquery Knob -->
+    <script src="/assets/plugin/knob/jquery.knob.min.js"></script>
+    <script src="/assets/scripts/jquery.knob.init.min.js"></script>
+    <!-- Sparkline Chart -->
+    <script src="/assets/plugin/chart/sparkline/jquery.sparkline.min.js"></script>
+    <script src="/assets/scripts/chart.sparkline.init.min.js"></script>
+    <script src="/assets/scripts/main.min.js"></script>
+    <script src="/assets/color-switcher/color-switcher.min.js"></script>
+
+
+    <script src="/assets/plugin/x-editable/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+    <link rel="stylesheet" href="/assets/bootstrap-tagsinput.css"/>
+
+    <script src="/assets/scripts/bootstrap.min.js"></script>
+    <script src="/assets/scripts/typeahead.bundle.min.js"></script>
+    <script src="/assets/scripts/bootstrap.min.js"></script>
+    <script src="/assets/scripts/typeahead.bundle.min.js"></script>
+    <script src="/assets/bootstrap-tagsinput.js"></script>
+    <script>
+        var ft = null;
+                var NenHienTai = null;
+        var ThongSo =<%- JSON.stringify(ThongSo) %>;
+    </script>
+</head>
+<style type="text/css">
+    .tabcon {
+        margin-top:10px;
+    }
+    body { margin: 0; padding: 0; border: 0; min-width: 320px; color: #777; }
+    html, button, input, select, textarea, .pure-g [class *= "pure-u"] { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 1.02em; }
+    p, td { line-height: 1.5; }
+    ul { padding: 0 0 0 20px; }
+
+    th { background: #eee; white-space: nowrap; }
+    th, td { padding: 10px; text-align: left; vertical-align: top; font-size: .9em; font-weight: normal; border-right: 1px solid #fff; }
+    td:first-child { white-space: nowrap; color: #008000; width: 1%; font-style: italic; }
+
+    h1, h2, h3 { color: #4b4b4b; font-family: "Source Sans Pro", sans-serif; font-weight: 300; margin: 0 0 1.2em; }
+    h1 { font-size: 4.5em; color: #1f8dd6; margin: 0 0 .4em; }
+    h2 { font-size: 2em; color: #636363; }
+    h3 { font-size: 1.8em; color: #4b4b4b; margin: 1.8em 0 .8em }
+    h4 { font: bold 1em sans-serif; color: #636363; margin: 4em 0 1em; }
+    a { color: #4e99c7; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    p, pre { margin: 0 0 1.2em; }
+    ::selection { color: #fff; background: #328efd; }
+    ::-moz-selection { color: #fff; background: #328efd; }
+
+    @media (max-width:480px) {
+        h1 { font-size: 3em; }
+        h2 { font-size: 1.8em; }
+        h3 { font-size: 1.5em; }
+        td:first-child { white-space: normal; }
+    }
+
+    .inline-code { padding: 1px 5px; background: #eee; border-radius: 2px; }
+    pre { padding: 15px 10px; font-size: .9em; color: #555; background: #edf3f8; }
+    pre i { color: #aaa; } /* comments */
+    pre b { font-weight: normal; color: #cf4b25; } /* strings */
+    pre em { color: #0c59e9; } /* numeric */
+
+    /* Pure CSS */
+    .pure-button { margin: 5px 0; text-decoration: none !important; }
+    .button-lg { margin: 5px 0; padding: .65em 1.6em; font-size: 105%; }
+    .button-sm { font-size: 85%; }
+
+    textarea {
+        width: 100%; height: 29px; padding: .3em .5em; border: 1px solid #ddd; font-size: .9em;
+        box-sizing: border-box; margin: 0 0 20px;
+    }
+    textarea[readonly] { color: #aaa; background: #f7f7f7; }
+
+    #response {
+        margin: 0 0 1.2em; padding: 10px; background: #f3f3f3; color: #777;
+        font-size: .9em; max-height: 150px; overflow: hidden; overflow-y: auto;
+    }
+    #response i { font-style: normal; color: #cf4b25; }
+    #response hr { margin: 2px 0; border: 0; border-top: 1px solid #eee; border-bottom: 1px solid #fdfdfd; }
+
+    /* overwrite default CSS for tiny, dark tags in demo5 */
+    #demo5+.tag-editor { background: #fafafa; font-size: 12px; }
+    #demo5+.tag-editor .tag-editor-tag { color: #fff; background: #555; border-radius: 2px; }
+    #demo5+.tag-editor .tag-editor-spacer { width: 7px; }
+    #demo5+.tag-editor .tag-editor-delete { display: none; }
+
+    /* color tags */
+    .tag-editor .red-tag .tag-editor-tag { color: #c65353; background: #ffd7d7; }
+    .tag-editor .red-tag .tag-editor-delete { background-color: #ffd7d7; }
+    .tag-editor .green-tag .tag-editor-tag { color: #45872c; background: #e1f3da; }
+    .tag-editor .green-tag .tag-editor-delete { background-color: #e1f3da; }
+    .activehuy {
+        color: #fff;
+        background-color: #9ea3be9c;
+    }
+    
+</style>
+<body>
+<div class="tab-wrapper">
+    <div class="main-menu">
+        <header class="header">
+            <a href="/" class="logo">Bot bitmex</a>
+            <button type="button" class="button-close fa fa-times js__menu_close"></button>
+            <div class="user">
+                <a href="#" class="avatar"><img src="/assets/avr.jpg" alt=""><span class="status online"></span></a>
+                <h5 class="name"><a href="/about">huyquansu</a></h5>
+                <h5 class="position">Administrator</h5>
+                <!-- /.name -->
+                <div class="control-wrap js__drop_down">
+                    <i class="fa fa-caret-down js__drop_down_button"></i>
+                    <div class="control-list">
+                        <div class="control-item"><a href="/about"><i class="fa fa-user"></i> Profile</a></div>
+                        <div class="control-item"><a href="#"><i class="fa fa-gear"></i> Settings</a></div>
+                        <div class="control-item"><a class="js__logout"><i class="fa fa-sign-out"></i> Log out</a></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="content">
+
+            <div class="navigation">
+                <h5 class="title">Navigation</h5>
+                <ul class="menu js__accordion tab-menu">
+
+                    <li class="activehuy" tt="Home">
+                        <a class="waves-effect parent-item " href="#"><i
+                                    class="menu-icon fa fa-home"></i><span>Home</span></a>
+                    </li>
+                    <li tt="Setting">
+                        <a class="waves-effect parent-item " href="#"><i
+                                    class="menu-icon fa fa-flag"></i><span>Nến</span></a>
+                    </li>
+
+                    <li tt="Bollinger Band">
+                        <a class="waves-effect parent-item " href="#"><i class="menu-icon fa fa-bar-chart"></i><span>Bollinger Band</span></a>
+                    </li>
+                    <li tt="SMA10">
+                        <a class="waves-effect parent-item " href="#"><i class="menu-icon fa fa-bar-chart"></i><span>SMA10</span></a>
+                    </li>
+                    <li tt="SMA20">
+                        <a class="waves-effect parent-item " href="#"><i class="menu-icon fa fa-bar-chart"></i><span>SMA20</span></a>
+                    </li>
+                    <li tt="RSA">
+                        <a class="waves-effect parent-item " href="#"><i
+                                    class="menu-icon fa fa-bar-chart"></i><span>RSA</span></a>
+                    </li>
+                    <li tt="Setting">
+                        <a class="waves-effect parent-item " href="#"><i
+                                    class="menu-icon fa fa-gear"></i><span>Setting</span></a>
+                    </li>
+                    <li>
+                        <a class="waves-effect parent-item " href="#"><i class="menu-icon fa fa-adjust"></i><span>About me</span></a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="fixed-navbar">
+        <div class="pull-left">
+            <button type="button" class="menu-mobile-button glyphicon glyphicon-menu-hamburger js__menu_mobile"
+                    id="js__menu_mobile"></button>
+            <h1 class="page-title" id="page-title">Setting</h1>
+        </div>
+        <div class="pull-right">
+            <a href="#" class="ico-item fa fa-power-off js__logout"></a>
+        </div>
+    </div>
+    <!-- /.fixed-navbar -->
+
+
+    <div id="wrapper">
+        <div class="main-content tab-content" style="padding-bottom: 10px;">
+            <!--// nến-->
+            <div class="tabcon">
+
+                <!--<script src="/coppy.js"></script>-->
+                <div id="" style="height: 100%;     ">
+                    <div id="demo" class="col-lg-8 col-xs-12">
+                        <div id="container-inner"
+                             style="height:600px; box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);"></div>
+                    </div>
+                    <div id="box-show" class="col-lg-4 col-xs-12" style="   box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+
+    height: 100%;
+ 
+    background-color: white;">
+                        <div style="z-index: 200">
+                            <div class="numberprice shadow" style="margin-top: 10px;border-radius: 7px">
+                                <span class="cycle">0 1 2 3 4 5 6 7 8 9</span>
+                                <span class="cycle">0 1 2 3 4 5 6 7 8 9</span>
+                                <span class="cycle">0 1 2 3 4 5 6 7 8 9</span>
+                                <span class="cycle">0 1 2 3 4 5 6 7 8 9</span>
+                                <span>,</span>
+                                <span class="cycle">0 1 2 3 4 5 6 7 8 9</span>
+                                <span>$</span>
+                            </div>
+                            <div style="width: 60px;margin: 0 auto;">
+                                <span id="UpDown" style="font-size: 40px;">🔸</span>
+                            </div>
+                            <div class="col-lg-12 col-xs-12">
+                                <div class="box-content" style="margin-bottom: 0px;">
+                                    <h4 class="box-title">List Order</h4>
+                                    <!-- /.box-title -->
+                                    <div class="dropdown js__drop_down">
+                                        <a href="#"
+                                           class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                        <ul class="sub-menu">
+                                            <li><a href="#">close</a></li>
+                                            <li><a href="#">Reload</a></li>
+
+                                        </ul>
+                                        <!-- /.sub-menu -->
+                                    </div>
+                                    <!-- /.dropdown js__dropdown -->
+                                    <table class="table table-striped " style="margin-bottom: 0px;">
+                                        <thead>
+                                        <tr>
+                                            <th style="width:40%;">Product</th>
+                                            <th>Price</th>
+                                            <th>Date</th>
+                                            <th>State</th>
+                                            <th style="width:5%;"></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Amaza Themes</td>
+                                            <td>$71</td>
+                                            <td>Nov 12,2016</td>
+                                            <td class="text-success">Completed</td>
+                                            <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Macbook</td>
+                                            <td>$142</td>
+                                            <td>Nov 10,2016</td>
+                                            <td class="text-danger">Cancelled</td>
+                                            <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Ninja Admin</td>
+                                            <td>$200</td>
+                                            <td>Oct 28,2016</td>
+                                            <td class="text-warning">Pending</td>
+                                            <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Galaxy Note 5</td>
+                                            <td>$200</td>
+                                            <td>Oct 28,2016</td>
+                                            <td class="text-success">Completed</td>
+                                            <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>CleanUp Themes</td>
+                                            <td>$71</td>
+                                            <td>Oct 22,2016</td>
+                                            <td class="text-success">Completed</td>
+                                            <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Facebook WP Plugin</td>
+                                            <td>$10</td>
+                                            <td>Oct 15,2016</td>
+                                            <td class="text-success">Completed</td>
+                                            <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Iphone 7</td>
+                                            <td>$100</td>
+                                            <td>Oct 12,2016</td>
+                                            <td class="text-warning">Pending</td>
+                                            <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nova House</td>
+                                            <td>$100</td>
+                                            <td>Oct 12,2016</td>
+                                            <td class="text-warning">Pending</td>
+                                            <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Repair Cars</td>
+                                            <td>$35</td>
+                                            <td>Oct 12,2016</td>
+                                            <td class="text-warning">Pending</td>
+                                            <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- /.table -->
+                                </div>
+                                <!-- /.box-content -->
+                            </div>
+                        </div>
+                        <div>
+
+
+                        </div>
+
+                    </div>
+                    <script type="text/javascript">
+
+                        var advOptions = {};
+                        var Chartne = {};
+                        var RTLog = true;
+                        var Datavolume = [];
+                        advOptions = {
+                            chart: {
+                                type: 'candlestick',
+                                plotBackgroundColor: 'transparent',
+                            },
+                            plotOptions: {
+                                series: {
+                                    marker: {
+                                        enabled: false
+                                    },
+                                    dataGrouping: {
+                                        enabled: false
+                                    },
+                                    point: {}
+                                }
+                            },
+                            tooltip: {
+                                style: {
+                                    width: '200px'
+                                },
+                                valueDecimals: 2,
+                                shared: true
+                            },
+
+                            rangeSelector: {
+                                buttonPosition: {
+                                    align: 'center',
+                                    x: 0,
+                                    y: 0
+                                },
+                                inputPosition: {
+                                    y: 0,
+                                    align: 'right',
+                                    x: -90
+                                },
+                                buttonTheme: {
+                                    fill: '#ffffff',
+                                    stroke: '#cccccc',
+                                    'stroke-width': 0,
+                                    width: '10px',
+                                    style: {
+                                        color: '#707070'
+                                    },
+                                    states: {
+                                        hover: {
+                                            fill: '#fff',
+                                            style: {
+                                                fontWeight: 'normal',
+                                                color: '#333333'
+                                            }
+                                        },
+                                        select: {
+                                            fill: '#fff',
+                                            style: {
+                                                fontWeight: 'normal',
+                                                color: '#29ABE2'
+                                            }
+                                        }
+                                    }
+                                },
+                                selected: 1,
+                                buttons: [
+                                    {
+                                        type: 'minute',
+                                        count: 30,
+                                        text: '30 '
+                                    }, {
+                                        type: 'minute',
+                                        count: 40,
+                                        text: '40 '
+                                    }, {
+                                        type: 'minute',
+                                        count: 60,
+                                        text: '60'
+                                    }, {
+                                        type: 'minute',
+                                        count: 120,
+                                        text: '120 '
+                                    }, {
+                                        type: 'minute',
+                                        count: 240,
+                                        text: '240'
+                                    }, {
+                                        type: 'all',
+                                        text: 'All'
+                                    }]
+                            },
+
+                            yAxis: [{
+                                height: '80%',
+                                resize: {
+                                    enabled: true,
+                                    controlledAxis: {
+                                        next: [1]
+                                    },
+                                    lineWidth: 4
+                                }
+                            }, {
+                                top: '80%',
+                                height: '20%',
+                                id: 'rsi'
+                            }],
+
+                            series: [{
+                                cropThreshold: 0,
+                                id: 'main',
+                                name: 'AAPL',
+                                data: [],
+                                tooltip: {
+                                    split: true,
+                                    valueDecimals: 2
+                                }
+                            },
+                                {
+                                    linkedTo: 'main',
+                                    type: 'column',
+                                    name: 'Volume',
+                                    id: 'volume',
+                                    color: "#15ff95",
+                                    data: [],
+                                    yAxis: 1
+
+                                }, {
+                                    linkedTo: 'main',
+                                    id: "flag",
+                                    type: 'flags',
+                                    data: [],
+                                    onSeries: 'main',
+                                    color: "#050fff",
+                                    height: 1,
+                                    width: 1,
+                                    yAxis: 0
+                                }, {
+                                    linkedTo: 'main',
+                                    type: 'line',
+                                    data: [],
+                                    name: 'BB BOTTOM',
+
+                                    color: "#0049ff",
+                                    yAxis: 0
+                                }, {
+                                    linkedTo: 'main',
+                                    type: 'line',
+                                    data: [],
+                                    name: 'SMA 20',
+
+                                    color: "#ff6f25",
+                                    yAxis: 0
+                                }, {
+                                    linkedTo: 'main',
+                                    type: 'line',
+                                    data: [],
+                                    name: 'BB TOP',
+
+                                    color: "#0049ff",
+                                    yAxis: 0
+                                }, {
+                                    linkedTo: 'main',
+                                    type: 'line',
+                                    data: [],
+                                    name: 'SMA 10',
+
+                                    color: "#ffc004",
+                                    yAxis: 0
+                                }, {
+                                    linkedTo: 'main',
+                                    type: 'line',
+                                    data: [],
+                                    name: 'SMA 20',
+
+                                    color: "#6affa9",
+                                    yAxis: 0
+                                }, {
+                                    linkedTo: 'main',
+                                    id: "flag",
+                                    type: 'flags',
+                                    data: [],
+                                    onSeries: 'main',
+                                    color: "#ffea00",
+                                    height: 16,
+                                    width: 16,
+                                    yAxis: 0
+                                }]
+                        };
+                        //
+                        (function (H) {
+                            H.getChartById = function (id) {
+                                return H.charts[document.getElementById(id)
+                                    .getAttribute('data-highcharts-chart')];
+                            };
+                        }(Highcharts));
+                        $("#js__menu_mobile").click(function () {
+                            setTimeout(function () {
+                                var body = document.body,
+                                    html = document.documentElement;
+
+                                var height = Math.max(body.scrollHeight, body.offsetHeight,
+                                    html.clientHeight, html.scrollHeight, html.offsetHeight);
+                                height -= 40;
+                                console.log(height)
+                                document.getElementById('container-inner').style.height = height - 150 + 'px';
+                                var ww = document.getElementById('container-inner').clientWidth;
+                                console.log("ww" + ww)
+                                Highcharts.getChartById('container-inner').setSize(
+                                    ww,
+                                    height - 150,
+                                    true
+                                );
+                            }, 100);
+                        });
+                        window.addEventListener('resize', function () {
+                            var body = document.body,
+                                html = document.documentElement;
+
+                            var height = Math.min(body.scrollHeight, body.offsetHeight,
+                                html.clientHeight, html.scrollHeight, html.offsetHeight);
+                            height -= 40;
+                            console.log(height)
+                            document.getElementById('container-inner').style.height = height - 150 + 'px';
+                            var ww = document.getElementById('demo').clientWidth;
+                            console.log("THU" + ww)
+                            Highcharts.getChartById('container-inner').setSize(
+                                ww - 30,
+                                height - 150,
+                                true
+                            );
+                        });
+                        var toast = function (msg, boo) {
+
+                            toastr.options = {
+                                "closeButton": false,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": false,
+                                "rtl": false,
+                                "positionClass": "toast-top-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": 300,
+                                "hideDuration": 1000,
+                                "timeOut": 5000,
+                                "extendedTimeOut": 1000,
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                            }
+                            if (boo)
+                                toastr["info"](msg)
+                            else
+                                toastr["success"](msg)
+
+                        }
+
+                        var socket = io();
+                        var isRealtime = true;
+                        var thu = {username: "asdfsdaf", type: 1};
+                        socket.emit('add user', thu);
+                        var index = -1;
+                        var ClientData = [];
+                        var IsShowToast = true;
+                        socket.on('datatrade1m', function (data) {
+                            Datavolume = [];
+                            // console.log(data)
+                            if (!isNaN(Chartne))
+                                Chartne.clear();
+                            let ggg = [];
+                            for (let i = 0; i < data.data.length; i++) {
+                                Datavolume.push([data.data[i][0], data.data[i][5]]);
+                            }
+                            var bienduoi = [];
+                            var biengiua = [];
+                            var bientren = [];
+                            var ArBollinger = data.Bollinger;
+                            for (let i = 0; i < ArBollinger.length; i++) {
+                                bienduoi.push([ArBollinger[i][0], ArBollinger[i][3]]);
+                                biengiua.push([ArBollinger[i][0], ArBollinger[i][2]]);
+                                bientren.push([ArBollinger[i][0], ArBollinger[i][1]]);
+                            }
+                            advOptions.series[6].data = data.Sma10;
+                            // advOptions.series[6].data =[];
+                            advOptions.series[7].data = [];
+                            advOptions.series[8].data = [];
+                            advOptions.series[7].data = data.Sma20;
+                            data = JSON.stringify(data.data);
+                            data = data.replace(/\/\*.*\*\//g, '');
+                            data = JSON.parse(data);
+                            advOptions.series[0].data = data;
+                            advOptions.series[1].data = Datavolume;
+                            advOptions.series[2].data = ggg;
+                            advOptions.series[3].data = bienduoi;
+                            // advOptions.series[4].data = biengiua;
+                            advOptions.series[5].data = bientren;
+
+                            // advOptions.series = [advOptions.series[0], advOptions.series[1], advOptions.series[2],advOptions.series[3]];
+                            Chartne = Highcharts.stockChart('container-inner', Highcharts.extend({}, advOptions));
+                            var body = document.body,
+                                html = document.documentElement;
+                            var height = Math.min(body.scrollHeight, body.offsetHeight,
+                                html.clientHeight, html.scrollHeight, html.offsetHeight);
+                            height -= 40;
+                            console.log(height)
+
+                            document.getElementById('box-show').style.height = (height - 150) + 'px';
+                            document.getElementById('container-inner').style.height = height - 150 + 'px';
+                            Highcharts.getChartById('container-inner').setSize(
+                                undefined,
+                                height - 150,
+                                false
+                            );
+                        });
+
+                        socket.on('disconnect', function () {
+                            console.log('mất kết nối');
+                            toast("mất kết nối tới sever",true);
+                        });
+
+                        socket.on('reconnect', function () {
+                            console.log('kết nối lại',false);
+                            toast("Đã  lết nối lại");
+
+                            socket.emit('add user', thu);
+                        });
+                        socket.on('reconnect_error', function () {
+                            console.log('không thể kết nối');
+                        });
+                        var min = 1;
+                        var max = 9;
+                        var unit = -50;
+                        $(".cycle").each(function (index, el) {
+                            var rnd = Math.floor(Math.random() * (max - min + 1)) + min;
+                            $(el).css('top', rnd * unit);
+                        });
+                        socket.on('trade1m', function (datane) {
+                            // console.log(datane)
+                            var data = datane.data;
+                            console.log(datane)
+                            if (isRealtime) {
+                                Chartne.series[6].addPoint(datane.Sma10, true, Chartne.series[6].data.length);
+                                Chartne.series[7].addPoint(datane.Sma20, true, Chartne.series[7].data.length);
+                                Chartne.series[3].addPoint([datane.Bollinger[0], datane.Bollinger[3]], true, Chartne.series[3].data.length);
+                                // Chartne.series[4].addPoint([datane.Bollinger[0], datane.Bollinger[2]], true, Chartne.series[4].data.length);
+                                Chartne.series[5].addPoint([datane.Bollinger[0], datane.Bollinger[1]], true, Chartne.series[5].data.length);
+
+                                Chartne.series[0].addPoint([data[0], data[1], data[2], data[3], data[4]], true, Chartne.series[0].data.length);
+                                Chartne.series[1].addPoint([data[0], data[5]], true, advOptions.series[0].data.length);
+                            } else {
+                                Chartne.series[6].addPoint(datane.Sma10);
+                                Chartne.series[7].addPoint(datane.Sma20);
+                                Chartne.series[3].addPoint([datane.Bollinger[0], datane.Bollinger[3]]);
+                                // Chartne.series[4].addPoint([datane.Bollinger[0], datane.Bollinger[2]]);
+                                Chartne.series[5].addPoint([datane.Bollinger[0], datane.Bollinger[1]]);
+
+                                Chartne.series[0].addPoint([data[0], data[1], data[2], data[3], data[4]]);
+                                Chartne.series[1].addPoint([data[0], data[5]]);
+                            }
+
+                            // Chartne.re
+                        });
+
+                        //
+                        // socket.on("getdataToast", function (data) {
+                        //
+                        //
+                        // });
+
+                        socket.on("Toast", function (data) {
+                            if (RTLog) {
+                                toast(data.connent, true)
+                                // outputFor(data.name, [data.connent, +data.value], "INFO", new Date());
+                            }
+                            if (IsShowToast)
+                                Chartne.series[2].addPoint({
+                                    x: new Date(data.time).getTime(),
+                                    y: data.y,
+                                    title: ".",
+                                    text: data.name + " - " + data.connent + " \n value" + data.value,
+                                    color: "#0014ff",
+                                    fillColor: Highcharts.getOptions().colors[0],
+                                    width: 16,
+                                    style: {
+                                        color: '#ffe510'
+                                    },
+                                    states: {
+                                        hover: {
+                                            fillColor: '#395C84'
+                                        }
+                                    },
+                                    shape: 'circlepin'
+                                }, true, Chartne.series[2].data.length);
+                        });
+                        var ClientToast;
+                        socket.on("AROrDer", function (data) {
+                            //
+                            console.log("aroder")
+                            console.log(data);
+
+
+                            if (RTLog) {
+
+                            }
+                            if (IsShowToast) {
+
+                                if (RTLog) {
+                                    // outputFor(data.name, ['Trend', string], "INFO", new Date());
+                                }
+                                for (let i = 0; i < data.length; i++) {
+                                    if (data[i] != null) {
+
+                                        var string = " Status : done" +
+                                            " price " + data[i].side + " : " + data[i].dataclose.open +
+                                            " price close : " + data[i].dataclose.close +
+                                            " countbet " + data[i].CountBet +
+                                            " trend ";
+                                        //
+                                        // Chartne.series[8].addPoint({
+                                        //     x: data[i].dataclose.TimeClose,
+                                        //     y: data[i].dataclose.close,
+                                        //     title: "C",
+                                        //     text: string,
+                                        //     color: "#ffffff",
+                                        //     fillColor: "#ffdd00",
+                                        //     width:8,
+                                        //     height: 8,
+                                        //     style: {
+                                        //         color: '#ffffff'
+                                        //     },
+                                        //     states: {
+                                        //         hover: {
+                                        //             fillColor: '#007584'
+                                        //         }
+                                        //     }         ,
+                                        //     shape: 'circlepin'
+                                        // });
+                                        Chartne.series[8].addPoint({
+                                            x: data[i].TimeOpen,
+                                            y: data[i].dataclose.open,
+                                            title: "O",
+                                            text: string,
+                                            color: "#ffffff",
+                                            fillColor: "#ffdd00",
+                                            width: 8,
+                                            height: 8,
+                                            style: {
+                                                color: '#ffffff'
+                                            },
+                                            states: {
+                                                hover: {
+                                                    fillColor: '#007584'
+                                                }
+                                            },
+                                            shape: 'circlepin'
+                                        });
+                                    }
+                                }
+
+                            }
+
+                        });
+                        socket.on("CurrentOrder", function (data) {
+                            console.log(data);
+                            if (RTLog) {
+                                // outputFor("Order", [data.toString()
+                                toast(data, true)
+
+                            }
+                            if (IsShowToast) {
+
+                                if (RTLog) {
+                                    // outputFor(data.name, ['Trend', string], "INFO", new Date());
+                                }
+                                if (data.isOpen) {
+                                    console.log("ddang cos 1 order")
+                                    var stringtrend = "";
+                                    if (data.listtrend)
+                                        for (let i = 0; i < data.listtrend.length; i++) {
+                                            stringtrend += " " + data.listtrend[i];
+                                        }
+                                    var string = " Status : trading" +
+                                        " price " + data.side + " : " + data.dataclose.open +
+                                        " countbet " + data.CountBet +
+                                        " trend " + stringtrend;
+
+                                    Chartne.series[8].addPoint({
+                                        x: data.TimeOpen,
+                                        y: data.dataclose.open,
+                                        title: ".",
+                                        text: string,
+                                        color: "#ffffff",
+                                        fillColor: "#ff7aec",
+                                        width: 2,
+                                        height: 2,
+                                        style: {
+                                            color: '#ffdd00'
+                                        },
+                                        states: {
+                                            hover: {
+                                                fillColor: '#007584'
+                                            }
+                                        },
+                                        shape: 'circlepin'
+                                    });
+                                }
+
+                            }
+
+                        });
+
+                        socket.on("Trend1m", function (data) {
+                            if (IsShowToast) {
+                                var temmm = "";
+                                if (data.sma.type != "__") {
+                                    temmm = " 2 đường sma có dấu hiệu " + data.sma.type;
+                                }
+                                var string = "--sma10 nằm " + data.sma.trend + " sma20" +
+                                    " SMA10 hướng " + data.sma.sma10.trend + " v " + data.sma.sma10.value.toFixed(2) + " c " + data.sma.sma10.count +
+                                    " SMA20 hướng " + data.sma.sma20.trend + " v " + data.sma.sma20.value.toFixed(2) + " c " + data.sma.sma20.count
+                                    + data.sma.type +
+                                    " ________--Nến " + data.Nen.trend + " v " + data.Nen.value.toFixed(2) + " c " + data.Nen.count +
+                                    " Nến loại " + " v " + data.Nen.type +
+                                    " _____Volume " + " v " + data.Volume.size + " trend " + data.Volume.trend;
+                                if (RTLog) {
+                                    // outputFor(data.name, ['Trend', string], "INFO", new Date());
+                                }
+                                Chartne.series[2].addPoint({
+                                    x: new Date(data.time).getTime() + 20000,
+                                    y: data.y,
+                                    title: ".",
+                                    text: string,
+                                    color: "#ffffff",
+                                    fillColor: "#ff7aec",
+                                    width: 1,
+                                    height: 1,
+                                    style: {
+                                        color: '#ffffff'
+                                    },
+                                    states: {
+                                        hover: {
+                                            fillColor: '#007584'
+                                        }
+                                    }
+                                });
+                            }
+
+                        });
+
+                        socket.on("dataTrend1m", function (data) {
+                            console.log(data)
+                            if (IsShowToast)
+                                for (let i = 0; i < data.length; i++) {
+                                    var temmm = "";
+                                    if (data[i].sma.type != "__") {
+                                        temmm = " 2 đường sma có dấu hiệu " + data[i].sma.type;
+                                    }
+                                    var string = "----sma10 nằm " + data[i].sma.trend + " sma20 " +
+                                        " SMA10 hướng " + data[i].sma.sma10.trend + " v " + data[i].sma.sma10.value.toFixed(2) + " c " + data[i].sma.sma10.count +
+                                        " SMA20 hướng " + data[i].sma.sma20.trend + " v " + data[i].sma.sma20.value.toFixed(2) + " c " + data[i].sma.sma20.count +
+                                        temmm +
+                                        " ______-Nến " + data[i].Nen.trend + " v " + data[i].Nen.value.toFixed(2) + " c " + data[i].Nen.count +
+                                        " Nến loại" + " v " + data[i].Nen.type +
+                                        " Volume" + " v " + data[i].Volume.size + " trend " + data[i].Volume.trend;
+                                    Chartne.series[2].addPoint({
+                                        x: new Date(data[i].time).getTime() + 20000,
+                                        y: data[i].y,
+                                        title: ".",
+                                        text: string,
+                                        color: "#ffffff",
+                                        fillColor: "#ff7aec",
+                                        width: 1,
+                                        height: 1,
+                                        style: {
+                                            color: '#ffffff'
+                                        },
+                                        states: {
+                                            hover: {
+                                                fillColor: '#007584'
+                                            }
+                                        }
+                                    });
+                                }
+
+                        });
+                        socket.on("dataToast", function (data) {
+                            if (IsShowToast)
+                                for (let i = 0; i < data.length; i++) {
+
+                                    Chartne.series[2].addPoint({
+                                        x: new Date(data[i].time).getTime(),
+                                        y: '.',
+                                        title: data.type,
+                                        text: data[i].name + " - " + data[i].connent,
+                                        color: "#0014ff",
+                                        fillColor: Highcharts.getOptions().colors[0],
+                                        width: 16,
+                                        style: {
+                                            color: '#ffe510'
+                                        },
+                                        states: {
+                                            hover: {
+                                                fillColor: '#395C84'
+                                            }
+                                        },
+                                        shape: 'circlepin'
+                                    });
+                                }
+
+                        });
+                        socket.on("UpDown", function (data) {
+                            // console.log(data)
+                            if (data.TG == "GIAM") {
+                                if (RTLog) {
+                                    toast("giá có xu hướng " + data.TG + " với val:" + data.L, false);
+                                    // outputFor("Giá", ["Giảm xuống :" + data.L], "INFO", new Date());
+                                }
+                                Chartne.series[2].addPoint({
+                                    x: new Date().getTime(),
+                                    y: data.Low,
+                                    title: '🔻',
+                                    text: "Giảm " + data.L,
+                                    color: "#0014ff",
+                                    fillColor: Highcharts.getOptions().colors[0],
+                                    width: 16,
+                                    style: {
+                                        color: '#ffe510'
+                                    },
+                                    states: {
+                                        hover: {
+                                            fillColor: '#395C84'
+                                        }
+                                    },
+                                    shape: 'circlepin'
+                                }, true, Chartne.series[2].data.length);
+                                toast("dấu hiệu :" + data.TG + " _độ lệch :" + data.L);
+                                document.getElementById("UpDown").innerHTML = "🔻";
+                            } else if (data.TG == "TANG") {
+                                if (RTLog) {
+                                    // outputFor("Giá", ["Tăng Lên :" + data.L], "INFO", new Date());
+                                }
+                                Chartne.series[2].addPoint({
+                                    x: new Date().getTime(),
+                                    y: data.High,
+
+                                    title: '🔺',
+                                    text: "tăng " + data.L,
+                                    color: "#0014ff",
+                                    fillColor: Highcharts.getOptions().colors[0],
+                                    width: 16,
+                                    style: {
+                                        color: '#ff8f68'
+                                    },
+                                    states: {
+                                        hover: {
+                                            fillColor: '#395C84' // darker
+                                        }
+                                    },
+                                    shape: 'circlepin'
+                                }, true, Chartne.series[2].data.length);
+                                toast("dấu hiệu :" + data.TG + " _độ lệch :" + data.L);
+                                document.getElementById("UpDown").innerHTML = "🔺";
+                            } else {
+                                if (RTLog) {
+                                    // outputFor("Giá", ["Đứng hoặc bấp bênh :" + data.L], "INFO", new Date());
+                                }
+                                // document.getElementById("UpDown").innerHTML=  "🔸";
+                            }
+                            setTimeout(function () {
+                                document.getElementById("UpDown").innerHTML = "🔸";
+                            }, 2000)
+                        });
+                        var tttt = false;
+                        setTimeout(function () {
+                            tttt = true;
+                        }, 5000)
+                        socket.on('trade', function (data) {
+                            document.title = data.price.close + "$ - AutoPrime";
+                            // toast("tiền hiện tại"+data.price,false)
+                            var Stringprice = data.price.close + "";
+                            var nene = "";
+                            if (Stringprice.length > 5) {
+                                nene = Stringprice.substring(0, 4) + Stringprice.substring(5, 6);
+                            } else {
+                                nene = Stringprice.substring(0, 4) + "0";
+                            }
+                            $(".cycle").each(function (index, el) {
+                                $(el).css('top', parseInt(nene.substring(index, index + 1)) * -50);
+                            });
+                        });
+                        socket.on("ChangeArThongSo", function (data) {
+                            console.log(data);
+                            let temp = [];
+                            for (let i = 0; i < data.length; i++) {
+                                temp.push({value: data[i].id, text: data[i].name});
+                            }
+                            console.log(temp)
+                            $('#listch').editable("destroy");
+                            $('#listch').editable({
+                                prepend: "chưa nnchọn",
+                                mode: 'inline',
+                                selected: 1,
+                                source:
+                                temp
+
+                                ,
+
+                                display: function (value, sourceData) {
+                                    var colors = {"": "#98a6ad", 1: "#5fbeaa", 2: "#5d9cec"},
+                                        elem = $.grep(sourceData, function (o) {
+                                            return o.value == value;
+                                        });
+
+                                    if (elem.length) {
+                                        $(this).text(elem[0].text).css("color", colors[value]);
+                                    } else {
+                                        $(this).empty();
+                                    }
+                                }
+                            });
+                        })
+                        socket.on("ChangeThongSo", function (data)     {  setTimeout(function(){
+                            console.log(data);
+                            ThongSo = data;
+
+
+                            if (ThongSo.ListNen.length > 0) {
+                                if (NenHienTai == null)
+                                    NenHienTai = ThongSo.ListNen[ThongSo.ListNen.length - 1];
+                                else {
+                                    let daxco = false;
+                                    for (let i = 0; i < ThongSo.ListNen.length; i++) {
+                                        if (ThongSo.ListNen[i].id == NenHienTai.id) {
+                                            NenHienTai = ThongSo.ListNen[i];
+                                            daxco = true;
+                                            break;
+                                        }
+                                    }
+                                    if (!daxco) {
+                                        NenHienTai = ThongSo.ListNen[ThongSo.ListNen.length - 1];
+                                    }
+                                }
+                            }
+                            var arnen = [];
+
+                            console.log(ThongSo)
+                            for (let i = 0; i < ThongSo.ListNen.length; i++) {
+                                arnen.push({value: ThongSo.ListNen[i].id, text: ThongSo.ListNen[i].name})
+                            }
+                            console.log("____")
+
+                            console.log(arnen)
+                            $('#linenen').editable("destroy");
+                            $('#linenen').editable({
+                                mode: 'inline',
+                                source: arnen,
+
+                                display: function (value, sourceData) {
+                                    var colors = {"": "#98a6ad", 1: "#5fbeaa", 2: "#5d9cec"},
+                                        elem = $.grep(sourceData, function (o) {
+                                            return o.value == value;
+                                        });
+
+                                    if (elem.length) {
+                                        $(this).text(elem[0].text).css("color", colors[value]);
+                                    } else {
+                                        $(this).empty();
+                                    }
+                                }
+                            });
+
+                            // $('#linenen').on("change")
+                            if(NenHienTai!=null) {
+                               let tgt= [">","<","-","+","*","/",")","(",">=","<=","!=","||","&&"] ;
+                                $("#demoxemthu").text("");
+                                removeAlltag();
+
+                                console.log("88888")
+                                if(NenHienTai.list)
+                                for (let i = 0; i <NenHienTai.list.length ; i++) {
+                                    tgt.push(NenHienTai.list[i].id+".close");
+                                    tgt.push(NenHienTai.list[i].id+".open");
+                                    tgt.push(NenHienTai.list[i].id+".low");
+
+                                    tgt.push(NenHienTai.list[i].id+".high");
+                                    tgt.push(NenHienTai.list[i].id+".dodai");
+                                    tgt.push(NenHienTai.list[i].id+".thannen");
+                                    tgt.push(NenHienTai.list[i].id+".lanendo");
+                                    tgt.push(NenHienTai.list[i].id+".lanenxanh");
+                               console.log(NenHienTai.list[i].id)
+                               }
+
+                               setarTag(tgt);
+                          
+                                    addTaghuy(NenHienTai.v)
+                                           $("#trang").focus();
+
+
+                                $("#linenen").editable("setValue", NenHienTai.id);
+                            }
+
+                            if(isNaN(ft))
+                            for (let i = ft.rows.array.length; i > 0; i--) {
+                                ft.rows.delete(i - 1)
+                            }
+                            if(NenHienTai!=null)
+                            for (let i = 0; i < NenHienTai.list.length; i++) {
+                                console.log("bbb đâ")
+                                ft.rows.add({
+                                    id: NenHienTai.list[i].id,
+                                    name: NenHienTai.list[i].name,
+                                    value: NenHienTai.list[i].value,
+                                    note: NenHienTai.list[i].note
+                                });
+                            }     arnen = [];
+
+                            console.log(ThongSo)
+                            for (let i = 0; i < ThongSo.ListNen.length; i++) {
+                                arnen.push({value: ThongSo.ListNen[i].id, text: ThongSo.ListNen[i].name})
+                            }
+                            console.log("____")
+
+                            console.log(arnen)
+                            $('#linenen').editable("destroy");
+                            $('#linenen').editable({
+                                mode: 'inline',
+                                source: arnen,
+
+                                display: function (value, sourceData) {
+                                    var colors = {"": "#98a6ad", 1: "#5fbeaa", 2: "#5d9cec"},
+                                        elem = $.grep(sourceData, function (o) {
+                                            return o.value == value;
+                                        });
+
+                                    if (elem.length) {
+                                        $(this).text(elem[0].text).css("color", colors[value]);
+                                    } else {
+                                        $(this).empty();
+                                    }
+                                }
+                            });
+
+                            // $('#linenen').on("change")
+                        if(NenHienTai!=null)
+                            $("#linenen").editable("setValue", NenHienTai.id);
+
+                            for (let i = ft.rows.array.length; i > 0; i--) {
+                                ft.rows.delete(i - 1)
+                            }
+                        if(NenHienTai!=null)
+                            for (let i = 0; i < NenHienTai.list.length; i++) {
+                                console.log("bbb đâ")
+                                ft.rows.add({
+                                    id: NenHienTai.list[i].id,
+                                    name: NenHienTai.list[i].name,
+                                    value: NenHienTai.list[i].value,
+                                    note: NenHienTai.list[i].note
+                                });
+                            }
+
+                            $('#name').editable({
+                                type: 'text',
+                                pk: 1,
+                                name: 'name',
+                                title: 'Enter Name',
+                                mode: 'inline'
+                            });
+                            $('#username').editable({
+                                type: 'text',
+                                pk: 1,
+                                name: 'UserName',
+                                title: 'Enter Name',
+                                mode: 'inline'
+                            });
+                            $("#isDemo").prop('checked', ThongSo.isDemo)
+
+                            $('#key').editable({
+                                showbuttons: 'right',
+                                mode: 'inline'
+                            });
+
+                            $('#secret').editable({
+                                showbuttons: 'right',
+                                mode: 'inline'
+                            });
+                            $('#CutLoss').editable({
+                                showbuttons: 'right',
+                                mode: 'inline'
+                            });
+                            $('#CutProfit').editable({
+                                showbuttons: 'right',
+                                mode: 'inline'
+                            });
+
+                            $('#Deviation').editable({
+                                showbuttons: 'right',
+                                mode: 'inline'
+                            });
+                            $('#PullLoss').editable({
+                                showbuttons: 'right',
+                                mode: 'inline'
+                            });
+                            $('#LimitLoss').editable({
+                                showbuttons: 'right',
+                                mode: 'inline'
+                            });
+
+                            $('#Marginbet').editable({
+                                showbuttons: 'right',
+                                mode: 'inline'
+                            });
+
+
+                            $('#tradeBin').editable({
+                                mode: 'inline',
+                                source: [
+                                    {value: "tradeBin1m", text: '1 phút'},
+                                    {value: "tradeBin5m", text: '5 phút'},
+                                    {value: "tradeBin1h", text: '1 giờ'},
+                                    {value: "tradeBin1d", text: '1 ngày'}
+                                ],
+
+                                display: function (value, sourceData) {
+                                    var colors = {"": "#98a6ad", 1: "#5fbeaa", 2: "#5d9cec"},
+                                        elem = $.grep(sourceData, function (o) {
+                                            return o.value == value;
+                                        });
+
+                                    if (elem.length) {
+                                        $(this).text(elem[0].text).css("color", colors[value]);
+                                    } else {
+                                        $(this).empty();
+                                    }
+                                }
+                            });
+                            $("#listch").editable('setValue', data.id);
+
+                            $("#Marginbet").editable('setValue', data.Marginbet);
+                            $("#PullLoss").editable('setValue', data.PullLoss);
+                            $("#Deviation").editable('setValue', data.Deviation);
+                            $("#CutProfit").editable('setValue', data.CutProfit);
+                            $("#name").editable('setValue', data.name);
+                            $("#note").editable('setValue', data.note);
+                            $("#CutLoss").editable('setValue', data.CutLoss);
+                            $("#LimitLoss").editable('setValue', data.LimitLoss);
+                            $("#tradeBin").editable('setValue', data.tradeBin);
+                            $("#key").editable('setValue', data.api.key);
+                            $("#secret").editable('setValue', data.api.secret);
+                        },100)})
+                    </script>
+                    <script src="/index.js"></script>
+                </div>
+            </div>
+            <div class="tabcon">
+                <div class="row small-spacing">
+                    <div class="col-xs-12">
+                        <div class="box-content">
+                            <div class="row small-spacing">
+                                <div class="col-xs-6">
+                                    <div class="box-content">
+                                        <h4 class="box-title">Thông Số cơ bản</h4>
+
+                                        <tr s>
+                                            <td>Thay đổi Mẫu nến *</td>
+                                            <td><a href="#" id="linenen" data-type="select" data-pk="1"
+                                                   data-value=""
+                                                   data-title="Đổi cấu hình"></a></td>
+                                        </tr>
+                                        <!-- /.box-title -->
+
+                                        <div class="dropdown js__drop_down">
+                                            <a href="#"
+                                               class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="#">Action</a></li>
+
+                                            </ul>
+                                            <!-- /.sub-menu -->
+                                        </div>
+                                        <!-- /.dropdown js__dropdown -->
+                                                   <div id="demoxemthu"></div>
+                                        <table class="table table-bordered table-striped" style="margin-top: 25px;">
+                                            <tbody>
+
+                                            <tr>
+                                                <td style="width: 25%">Tên mô hình</td>
+                                                <td><a href="#" id="linename" data-type="text" data-pk="1"
+                                                       data-title="Tên mô hình"></a></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="width: 25%">Kichs hoạt</td>
+                                                <td class="switch  margin-bottom-20" style="border: none"><input
+                                                            type="checkbox" id="linestatus"
+
+                                                    ><label
+                                                            for="linestatus"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 25%">Kichs hoạt</td>
+                                                <td >  <textarea id="trang" class="tag-editor-hidden-src"></textarea>      </td>
+                                            </tr>
+                                            <style>
+                                                .green-taghuy .tag-editor-tag{
+                                                    color: #000000;
+                                                    background: #ead450a6;
+                                                    font-weight: 20px;
+                                                }
+                                                .ng-taghuy .tag-editor-tag{
+                                                    color:#fff;
+                                                    background: #000000;
+                                                }
+                                                .red-taghuy .tag-editor-tag{
+                                                    color:#fff;
+                                                    background: #0004ff;
+                                                }
+                                                #demoxemthu{
+                                                    color: #0c0c0c;
+                                                }
+                                            </style>
+                                            <script>
+                                               var removeAlltag= function() {
+                                                    var tags = $('#trang').tagEditor('getTags')[0].tags;
+                                                    console.log(tags)
+                                                    for (i = 0; i < tags.length; i++) { $('#trang').tagEditor('removeTag', tags[i]); }
+                                                }
+                                                var addTaghuy=function (tagg) {
+                                                    $('#trang').tagEditor('initv', tagg);
+                                                }
+                                                var setarTag=function(ar){
+                                                    $('#trang').tagEditor('sethuy', ar);
+                                                }
+                                             var  tag_classes= function (field, editor, tags) {
+                                                    // $('.tag-editor-tag', editor).each(function () {
+                                                    //     // alert(o.autocomplete.source.indexOf(tag));
+                                                    //     if (o.autocomplete)
+                                                    //         if (o.autocomplete.source.indexOf( $(this).text() )==-1 && !Number.isInteger(parseInt( $(this).text() ))) $(this).closest('li').remove();
+                                                    // });
+                                                    $("#demoxemthu").text("");
+                                                    var te="";
+
+                                                 let ar=[];
+                                                 $('#trang').tagEditor('removeTag', 'nen');
+                                                 $('#trang').tagEditor('removeTag', 'ne');
+                                                    $('li', editor).each(function(){
+                                                        var li = $(this);
+                                                           // te +=" "+ li.find('.tag-editor-tag').text();
+                                                        li.removeClass('red-taghuy green-taghuy');
+                                                        if(li.find('.tag-editor-tag').text()!="")
+                                                        ar.push(li.find('.tag-editor-tag').text());
+                                                        var ttt=[">","<","-","+","/","*","(",")",">=","<=","!=","||","&&"]
+                                                        if (ttt.indexOf(li.find('.tag-editor-tag').text())>=0) li.addClass('red-taghuy');
+                                                        else  li.addClass('green-taghuy');
+                                                    });
+
+
+                                             let tempp=    $('#trang').tagEditor('getTags')[0].tags ;
+                                                 for (let i = 0; i <tempp.length ; i++) {
+                                                     te +=" "+      tempp[i];
+                                                 }
+                                                    $("#demoxemthu").text(te);
+                                                }
+                                                $('#trang').tagEditor({
+                                                    autocomplete: {
+                                                        delay: 0,
+                                                        // show suggestions immediately
+                                                        position: { collision: 'flip' },
+                                                        source: [">","<","-","+","*","/",")","(",">=","<=","!=","||","&&"]
+                                                    },
+                                                    forceLowercase: true,
+                                                    placeholder: 'Nhập chiến thuật ...'     ,
+                                                    beforeTagSave: function(field, editor, tags, tag, val) {
+
+                                                        // console.log('Tag ' + val + ' saved' + (tag ? ' over ' + tag : '') + '.');
+                                                    },
+                                                    onChange:tag_classes,
+                                                    beforeTagDelete: function(field, editor, tags, val) {
+                                                        // var q = confirm('Remove tag "' + val + '"?');
+                                                        // if (q)  console.log('Tag ' + val + ' deleted.');
+                                                        // else  console.log('Removal of ' + val + ' discarded.');
+                                                        // return q;
+                                                        $("#demoxemthu").text("");
+                                                        return true;
+                                                    }
+                                                });
+                                            </script>
+                                            <tr style="height: 110px;">
+                                                <td>Ghi chú</td>
+                                                <td><a href="#" id="linenote" data-type="textarea" data-pk="3"
+                                                       data-placeholder="Note here..."
+                                                       data-title="Enter comments"></a></td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+                                        <button type="button" id="buttonluunen"
+                                                class="btn btn-primary waves-effect waves-light">Lưu
+                                        </button>
+                                        <button type="button" id="buttonnhanbannen"
+                                                class="btn btn-primary waves-effect waves-light">Tạo mới
+                                        </button>
+                                        <button type="button" id="buttonxoanen"
+                                                class="btn btn-red waves-effect waves-light">Xóa
+                                        </button>
+                                    </div>
+                                    <!-- /.box-content -->
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="box-content">
+                                        <!-- /.box-title -->
+                                        <h4 class="box-title">danh sách Nến</h4>
+                                        <!-- /.box-title -->
+                                        <div class="dropdown js__drop_down">
+                                            <a href="#"
+                                               class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="#">reload</a></li>
+
+                                            </ul>
+                                            <!-- /.sub-menu -->
+                                        </div>
+                                        <!-- /.dropdown js__dropdown -->
+
+
+                                        <table id="editing-example" class="table" data-paging="true"
+                                               data-filtering="true"
+                                               data-sorting="true" style="min-height: 300px;">
+                                            <thead>
+                                            <tr>
+                                                <th data-name="id" data-breakpoints="xs" data-type="text">ID</th>
+                                                <th data-name="name">Tên nến</th>
+                                                <th data-name="value" data-type="number" data-breakpoints="xs">Vị trí
+                                                </th>
+                                                <th data-name="note" data-breakpoints="xs">Ghi Chú</th>
+
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
+
+                                            </tbody>
+                                        </table>
+
+                                        <div class="modal fade" id="editor-modal" tabindex="-1" role="dialog"
+                                             aria-labelledby="editor-title">
+                                            <style scoped>
+                                                /* provides a red astrix to denote required fields - this should be included in common stylesheet */
+                                                .form-group.required .control-label:after {
+                                                    content: "*";
+                                                    color: red;
+                                                    margin-left: 4px;
+                                                }
+                                            </style>
+                                            <div class="modal-dialog" role="document">
+                                                <form class="modal-content form-horizontal" id="editor">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                            <span aria-hidden="true">×</span></button>
+                                                        <h4 class="modal-title" id="editor-title">Thêm </h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <input type="text" id="id" name="id" class="hidden"/>
+                                                        <div class="form-group required">
+                                                            <label for="name" class="col-sm-3 control-label">Tên</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" class="form-control" id="fname"
+                                                                       name="name" placeholder=" Name" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group required">
+                                                            <label for="value" class="col-sm-3 control-label">vị trí
+                                                                (mới nhất là 1, kề sau là 2...)</label>
+                                                            <div class="col-sm-9">
+
+                                                                <input type="number" class="form-control" id="fvalue"
+                                                                       name="value" placeholder="nhập vị trí" required>
+                                                                <!--<input type="text" id="fvalue"  name="value" placeholder="Giá trị" required class="form-control flexdatalist"   data-min-length="1" list="languages" >-->
+                                                                <!--<datalist id="languages">-->
+                                                                <!--<option value="PHP">PHP</option>-->
+                                                                <!--<option value="JavaScript">JavaScript</option>-->
+                                                                <!--<option value="Cobol">Cobol</option>-->
+                                                                <!--<option value="C#">C#</option>-->
+                                                                <!--<option value="C++">C++</option>-->
+                                                                <!--<option value="Java">Java</option>-->
+                                                                <!--<option value="Pascal">Pascal</option>-->
+                                                                <!--<option value="FORTRAN">FORTRAN</option>-->
+                                                                <!--<option value="Lisp">Lisp</option>-->
+                                                                <!--<option value="Swift">Swift</option>-->
+                                                                <!--</datalist>-->
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group ">
+                                                            <label for="note" class="col-sm-3 control-label">Ghi
+                                                                chú</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" class="form-control" id="fnote"
+                                                                       name="note" placeholder="Nhập ghi chú">
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary">Save changes
+                                                        </button>
+                                                        <button type="button" class="btn btn-default"
+                                                                data-dismiss="modal">Cancel
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <!-- /.box-content -->
+                                </div>
+                                <!-- /.col-xs-12 -->
+
+                            </div>
+
+                            <script>
+                                //huyhuyhuyhuy
+
+                                var $modal = $('#editor-modal'),
+                                    $editor = $('#editor'),
+                                    $editorTitle = $('#editor-title');
+                                ft = FooTable.init('#editing-example', {
+                                    editing: {
+                                        enabled: true,
+                                        addRow: function () {
+                                            $modal.removeData('row');
+                                            $editor[0].reset();
+                                            $editorTitle.text('Add a new row');
+                                            $modal.modal('show');
+                                        },
+                                        editRow: function (row) {
+                                            var values = row.val();
+                                            $editor.find('#id').val(values.id);
+                                            $editor.find('#fname').val(values.name);
+                                            $editor.find('#fvalue').val(values.value);
+                                            $editor.find('#fnote').val(values.note);
+
+                                            $modal.data('row', row);
+                                            $editorTitle.text('Edit row #' + values.id);
+                                            $modal.modal('show');
+                                        },
+                                        deleteRow: function (row) {
+                                            swal({
+                                                title: "Xóa ?",
+                                                text: "Bạn có muốn Xóa không?",
+                                                type: "warning",
+                                                showCancelButton: !0,
+                                                confirmButtonColor: "#DD6B55",
+                                                confirmButtonText: "Yes!",
+                                                cancelButtonText: "No!",
+                                                closeOnConfirm: !1,
+                                                closeOnCancel: !0,
+
+                                                confirmButtonColor: "#f60e0e"
+                                            }, function (e) {
+                                                e && swal({
+                                                    title: "xóa dữ liệu!",
+                                                    text: "hoàn tất!",
+                                                    type: "success",
+                                                    timer: 700,
+                                                    confirmButtonColor: "#304ffe"
+                                                });
+                                                if (e) {
+                                                    if(NenHienTai!=null)
+                                                    for (let i = 0; i < NenHienTai.list.length; i++) {
+                                                        if (NenHienTai.list[i].id == row.value.id) {
+                                                            NenHienTai.list.splice(i, 1);
+                                                            console.log("đã xó")
+                                                            break;
+                                                        }
+                                                    }
+                                                    socket.emit("UpdateNen", NenHienTai);
+                                                    row.delete();
+
+                                                }
+                                            })
+
+                                        }
+                                    }
+                                }),
+                                    uid = 0;
+
+                                $editor.on('submit', function (e) {
+                                    if (this.checkValidity && !this.checkValidity()) return;
+                                    e.preventDefault();
+                                    let numberne = -1;
+                                    try {
+                                        numberne = parseInt($editor.find('#fvalue').val());
+                                    } catch (e) {
+                                        numberne = -1
+                                    }
+                                    var row = $modal.data('row'),
+                                        values = {
+                                            id: $editor.find('#id').val() ,
+                                            name: $editor.find('#fname').val(),
+                                            value: numberne,
+                                            note: $editor.find('#fnote').val()
+                                        };
+                                    {
+                                        if (row instanceof FooTable.Row) {
+
+                                            row.val(values);
+                                            if(NenHienTai!=null)
+                                            for (let i = 0; i < NenHienTai.list.length; i++) {
+                                                console.log(NenHienTai.list[i].id)
+                                                if (NenHienTai.list[i].id == row.value.id) {
+                                                    NenHienTai.list[i] = values;
+                                                    break;
+                                                }
+                                            }
+                                            console.log("_______ update ")
+                                            console.log(NenHienTai)
+                                            socket.emit("UpdateNen", NenHienTai);
+                                        } else {
+                                            let temm = NenHienTai.list.length;
+                                            temm++;
+                                            values.id = "nen" + temm;
+                                            artam = [];
+                                            if(NenHienTai!=null)
+                                            for (let i = 0; i < NenHienTai.list.length; i++) {
+                                                artam.push(NenHienTai.list[i].id);
+
+                                            }
+                                            temm = 1;
+                                            
+                                            values.id = "nen" + numberne;
+                                            NenHienTai.list.push(values);
+                                            // console.log(NenHienTai)
+                                            socket.emit("UpdateNen", NenHienTai);
+                                            ft.rows.add(values);
+                                        }
+                                        $modal.modal('hide');
+                                    }
+                                });
+
+
+
+
+
+
+                                let arnen = [];
+
+                                console.log(ThongSo)
+                                if (ThongSo.ListNen.length > 0) {
+                                    NenHienTai = ThongSo.ListNen[ThongSo.ListNen.length - 1];
+                                }
+                                for (let i = 0; i < ThongSo.ListNen.length; i++) {
+
+                                    arnen.push({value: ThongSo.ListNen[i].id, text: ThongSo.ListNen[i].name})
+                                }
+
+                                console.log("nến hiện tại ___")
+                                console.log(NenHienTai)
+                                console.log(ft)
+                                // $("#editing-example").find("tr:gt(0)").remove();
+                                if(NenHienTai!=null)
+                                for (let i = 0; i < NenHienTai.list.length; i++) {
+                                    console.log("thêm nè")
+                                    ft.rows.add({
+                                        id: NenHienTai.list[i].id,
+                                        name: NenHienTai.list[i].name,
+                                        value: NenHienTai.list[i].value,
+                                        note: NenHienTai.list[i].note
+                                    });
+                                }
+                                console.log("____")
+
+                                console.log(arnen)
+
+                                    $('#linenen').editable({
+                                    mode: 'inline',
+                                    source: arnen,
+
+                                    display: function (value, sourceData) {
+                                        var colors = {"": "#98a6ad", 1: "#5fbeaa", 2: "#5d9cec"},
+                                            elem = $.grep(sourceData, function (o) {
+                                                return o.value == value;
+                                            });
+
+                                        if (elem.length) {
+                                            $(this).text(elem[0].text).css("color", colors[value]);
+                                        } else {
+                                            $(this).empty();
+                                        }
+                                    }
+                                });
+
+
+                                $('#linenen').on('save', function (e, params) {
+                                    for (let i = 0; i < ThongSo.ListNen.length; i++) {
+                                        if (ThongSo.ListNen[i].id == params.newValue) {
+                                            console.log(ThongSo.ListNen[i])
+                                            NenHienTai = ThongSo.ListNen[i];
+
+                                             arnen = [];
+
+                                            console.log(ThongSo)
+                                            for (let i = 0; i < ThongSo.ListNen.length; i++) {
+                                                arnen.push({value: ThongSo.ListNen[i].id, text: ThongSo.ListNen[i].name})
+                                            }
+                                            console.log("____")
+                                            $("#demoxemthu").text("");
+                                            removeAlltag();
+                                            let tgt= [">","<","-","+","*","/",")","(",">=","<=","!=","||","&&"];
+                                            if(NenHienTai.list)
+                                                for (let i = 0; i <NenHienTai.list.length ; i++) {
+                                                    tgt.push(NenHienTai.list[i].id+".close");
+                                                    tgt.push(NenHienTai.list[i].id+".open");
+                                                    tgt.push(NenHienTai.list[i].id+".low");
+
+                                                    tgt.push(NenHienTai.list[i].id+".high");
+                                                    tgt.push(NenHienTai.list[i].id+".dodai");
+                                                    tgt.push(NenHienTai.list[i].id+".thannen");
+                                                    tgt.push(NenHienTai.list[i].id+".lanendo");
+                                                    tgt.push(NenHienTai.list[i].id+".lanenxanh");
+                                                    console.log(NenHienTai.list[i].id)
+                                                }
+
+                                            setarTag(tgt);
+                                            addTaghuy(NenHienTai.v)
+                                            $("#trang").focus();
+                                            console.log(arnen)
+                                            $('#linenen').editable("destroy");
+                                            $('#linenen').editable({
+                                                mode: 'inline',
+                                                source: arnen,
+
+                                                display: function (value, sourceData) {
+                                                    var colors = {"": "#98a6ad", 1: "#5fbeaa", 2: "#5d9cec"},
+                                                        elem = $.grep(sourceData, function (o) {
+                                                            return o.value == value;
+                                                        });
+
+                                                    if (elem.length) {
+                                                        $(this).text(elem[0].text).css("color", colors[value]);
+                                                    } else {
+                                                        $(this).empty();
+                                                    }
+                                                }
+                                            });
+                                            $("#linestatus").prop('checked', NenHienTai.status)
+                                            $('#linename').editable("setValue",NenHienTai.name);
+
+                                            $('#linenote').editable("setValue",NenHienTai.note)
+
+                                            // $('#linenen').on("change")
+                                            if(NenHienTai!=null)
+                                            $("#linenen").editable("setValue", NenHienTai.id);
+
+                                            for (let i = ft.rows.array.length; i > 0; i--) {
+                                                ft.rows.delete(i - 1)
+                                            }
+                                            if(NenHienTai!=null)
+                                            for (let i = 0; i < NenHienTai.list.length; i++) {
+                                                console.log("bbb đâ")
+                                                ft.rows.add({
+                                                    id: NenHienTai.list[i].id,
+                                                    name: NenHienTai.list[i].name,
+                                                    value: NenHienTai.list[i].value,
+                                                    note: NenHienTai.list[i].note
+                                                });
+                                            }
+                                            break;
+                                        }
+                                    }
+                                });
+
+                                $('#linename').editable({
+
+                                    showbuttons: 'right',
+                                    mode: 'inline'
+                                });
+
+                                $('#linenote').editable({
+                                    showbuttons: 'right',
+                                    mode: 'inline'
+                                });
+                                if (NenHienTai != null) {
+
+                                    console.log("Setmacskadjfaksdfjk")
+                                    console.log(NenHienTai)
+                                    $('#linename').editable("setValue", NenHienTai.name);
+                                    $("#linestatus").prop('checked', true)
+                                    console.log($("#linestatus").prop('checked'))
+                                    $('#linenote').editable("setValue", NenHienTai.note);
+                                }
+
+
+                                $("#buttonnhanbannen").on("click", function () {
+                                    swal({
+                                        title: "Tạo mới Mô hình nến?",
+                                        text: "Thêm mới 1 mo hình nến!",
+                                        type: "warning",
+                                        showCancelButton: true,
+                                        confirmButtonColor: "#DD6B55",
+                                        confirmButtonText: "Vâng!",
+                                        cancelButtonText: "Không,!",
+                                        closeOnConfirm: true,
+                                        closeOnCancel: true,
+                                        confirmButtonColor: '#f60e0e',
+                                    }, function (isConfirm) {
+                                        if (isConfirm) {
+                                            let temp = {
+                                                id: "idmacdichnen1",
+                                                name: $("#linename").editable("getValue").linename,
+                                                note: $("#linenote").editable("getValue").linenote,
+                                                status: true,
+                                                list: [],
+                                                v: []
+                                            }
+                                            NenHienTai = null;
+                                            socket.emit("AddListNen", temp);
+                                            swal({
+                                                title: "Done!",
+                                                text: "Đã Thêm mới thành công!",
+                                                type: "success",
+                                                confirmButtonColor: '#304ffe',
+                                            });
+                                        } else {
+                                        }
+                                    });
+
+
+                                });
+
+                                $("#buttonxoanen").on("click", function () {
+
+
+                                    swal({
+                                        title: "Xóa Nến?",
+                                        text: "Bạn chắc mình muốn xóa!",
+                                        type: "warning",
+                                        showCancelButton: true,
+                                        confirmButtonColor: "#DD6B55",
+                                        confirmButtonText: "Vâng!",
+                                        cancelButtonText: "Không,!",
+                                        closeOnConfirm: true,
+                                        closeOnCancel: true,
+                                        confirmButtonColor: '#f60e0e',
+                                    }, function (isConfirm) {
+                                        if (isConfirm) {
+                                            socket.emit("RemoveListNen", NenHienTai.id);
+                                            swal({
+                                                title: "Done!",
+                                                text: "Đã Xóa",
+                                                type: "success",
+                                                confirmButtonColor: '#304ffe',
+                                            });
+                                        } else {
+                                        }
+                                    });
+
+
+                                });
+                                $("#buttonluunen").on("click", function () {
+                                    swal({
+                                        title: "Lưu thay đổi?",
+                                        text: "Bạn chắc mình muốn lưu'!",
+                                        type: "warning",
+                                        showCancelButton: true,
+                                        confirmButtonColor: "#DD6B55",
+                                        confirmButtonText: "Vâng!",
+                                        cancelButtonText: "Không,!",
+                                        closeOnConfirm: true,
+                                        closeOnCancel: true,
+                                        confirmButtonColor: '#f60e0e',
+                                    }, function (isConfirm) {
+                                        if (isConfirm) {
+                                            
+                                            NenHienTai.name = $("#linename").editable("getValue").linename;
+                                            NenHienTai.status = $("#linestatus").prop('checked');
+                                            
+                                                 NenHienTai.v=$('#trang').tagEditor('getTags')[0].tags;
+                                            NenHienTai.note = $("#linenote").editable("getValue").linenote;
+                                            console.log(NenHienTai);
+                                            socket.emit("UpdateListNen", NenHienTai);
+                                            swal({
+                                                title: "Done!",
+                                                text: "Đã lưu thay đổi",
+                                                type: "success",
+                                                confirmButtonColor: '#304ffe',
+                                            });
+                                        } else {
+                                        }
+                                    });
+
+
+                                });
+                            </script>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-xs-12 -->
+
+
+                </div>
+            </div>
+
+            <div class="tabcon">
+
+                <div class="row small-spacing">
+                    <div class="col-lg-3 col-xs-12">
+                        <div class="box-content">
+                            <h4 class="box-title">Percent Circle</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                <a href="#"
+                                   class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+
+                                </ul>
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <div class="text-center">
+                                <div class="knob-wrap">
+                                    <input class="knob" data-width="150" data-height="150" data-bgColor="#ebeff2"
+                                           data-fgColor="#304ffe" data-readOnly=true data-thickness=".4" value="45"/>
+                                </div>
+                                <!-- .knob-wrap -->
+                            </div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-3 col-xs-12 -->
+
+                    <div class="col-lg-3 col-xs-12">
+                        <div class="box-content">
+
+
+                            <h4 class="box-title">Percent Circle</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                <a href="#"
+                                   class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+
+                                </ul>
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <div class="text-center">
+                                <div class="knob-wrap">
+                                    <input class="knob" data-width="150" data-height="150" data-bgColor="#ebeff2"
+                                           data-fgColor="#00bf4f" data-readOnly=true data-thickness=".4" value="87"/>
+                                </div>
+                                <!-- .knob-wrap -->
+                            </div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-3 col-xs-12 -->
+
+                    <div class="col-lg-3 col-xs-12">
+                        <div class="box-content">
+                            <h4 class="box-title">Percent Circle</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                <a href="#"
+                                   class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else there</a></li>
+                                    <li class="split"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <div class="text-center">
+                                <div class="knob-wrap">
+                                    <input class="knob" data-width="150" data-height="150" data-bgColor="#ebeff2"
+                                           data-fgColor="#ffa000" data-readOnly=true data-thickness=".4" value="12"/>
+                                </div>
+                                <!-- .knob-wrap -->
+                            </div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-3 col-xs-12 -->
+
+                    <div class="col-lg-3 col-xs-12">
+                        <div class="box-content">
+                            <h4 class="box-title">Percent Circle</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                <a href="#"
+                                   class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else there</a></li>
+                                    <li class="split"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <div class="text-center">
+                                <div class="knob-wrap">
+                                    <input class="knob" data-width="150" data-height="150" data-bgColor="#ebeff2"
+                                           data-fgColor="#f60e0e" data-readOnly=true data-thickness=".4" value="36"/>
+                                </div>
+                                <!-- .knob-wrap -->
+                            </div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-3 col-xs-12 -->
+
+                    <div class="col-lg-4 col-xs-12">
+                        <div class="box-content">
+                            <h4 class="box-title text-info">Site Traffic</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                <a href="#"
+                                   class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else there</a></li>
+                                    <li class="split"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <div class="content widget-stat">
+                                <div id="traffic-sparkline-chart-1" class="left-content margin-top-15"></div>
+                                <!-- /#traffic-sparkline-chart-1 -->
+                                <div class="right-content">
+                                    <h2 class="counter text-info">278</h2>
+                                    <!-- /.counter -->
+                                    <p class="text text-info">Some text here</p>
+                                    <!-- /.text -->
+                                </div>
+                                <!-- .right-content -->
+                            </div>
+                            <!-- /.content widget-stat -->
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-4 col-xs-12 -->
+
+                    <div class="col-lg-4 col-xs-12">
+                        <div class="box-content">
+                            <h4 class="box-title text-success">Site Traffic</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                <a href="#"
+                                   class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else there</a></li>
+                                    <li class="split"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <div class="content widget-stat">
+                                <div id="traffic-sparkline-chart-2" class="left-content margin-top-10"></div>
+                                <!-- /#traffic-sparkline-chart-2 -->
+                                <div class="right-content">
+                                    <h2 class="counter text-success">36%</h2>
+                                    <!-- /.counter -->
+                                    <p class="text text-success">Some text here</p>
+                                    <!-- /.text -->
+                                </div>
+                                <!-- .right-content -->
+                            </div>
+                            <!-- /.content widget-stat -->
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-4 col-xs-12 -->
+
+                    <div class="col-lg-4 col-xs-12">
+                        <div class="box-content">
+                            <h4 class="box-title text-success">Site Traffic</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                <a href="#"
+                                   class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else there</a></li>
+                                    <li class="split"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <div class="content widget-stat">
+                                <div id="traffic-sparkline-chart-3" class="left-content"></div>
+                                <!-- /#traffic-sparkline-chart-3 -->
+                                <div class="right-content">
+                                    <h2 class="counter text-danger">849 <i class="fa fa-angle-double-up"></i></h2>
+                                    <!-- /.counter -->
+                                    <p class="text text-danger">Some text here</p>
+                                    <!-- /.text -->
+                                </div>
+                                <!-- .right-content -->
+                            </div>
+                            <!-- /.content widget-stat -->
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-4 col-xs-12 -->
+                </div>
+                <!-- /.row small-spacing -->
+
+                <div class="row small-spacing">
+                    <div class="col-lg-3 col-md-6 col-xs-12">
+                        <div class="box-content">
+                            <div class="statistics-box with-icon">
+                                <i class="ico fa fa-apple text-inverse"></i>
+                                <h2 class="counter text-inverse">2561</h2>
+                                <p class="text">Some text here</p>
+                            </div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-3 col-md-6 col-xs-12 -->
+                    <div class="col-lg-3 col-md-6 col-xs-12">
+                        <div class="box-content">
+                            <div class="statistics-box with-icon">
+                                <i class="ico fa fa-android text-success"></i>
+                                <h2 class="counter text-success">3562</h2>
+                                <p class="text">Some text here</p>
+                            </div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-3 col-md-6 col-xs-12 -->
+                    <div class="col-lg-3 col-md-6 col-xs-12">
+                        <div class="box-content">
+                            <div class="statistics-box with-icon">
+                                <i class="ico fa fa-users text-primary"></i>
+                                <h2 class="counter text-primary">283</h2>
+                                <p class="text">Some text here</p>
+                            </div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-3 col-md-6 col-xs-12 -->
+                    <div class="col-lg-3 col-md-6 col-xs-12">
+                        <div class="box-content">
+                            <div class="statistics-box with-icon">
+                                <i class="ico fa fa-area-chart text-info"></i>
+                                <h2 class="counter text-info">241</h2>
+                                <p class="text">Some text here</p>
+                            </div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-3 col-md-6 col-xs-12 -->
+                </div>
+                <!-- .row -->
+
+                <div class="row small-spacing">
+                    <div class="col-lg-3 col-md-6 col-xs-12">
+                        <div class="box-content bg-success text-white">
+                            <div class="statistics-box with-icon">
+                                <i class="ico small fa fa-diamond"></i>
+                                <p class="text text-white">SUCCESS</p>
+                                <h2 class="counter">72943</h2>
+                            </div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-3 col-md-6 col-xs-12 -->
+                    <div class="col-lg-3 col-md-6 col-xs-12">
+                        <div class="box-content bg-info text-white">
+                            <div class="statistics-box with-icon">
+                                <i class="ico small fa fa-download"></i>
+                                <p class="text text-white">DOWNLOAD</p>
+                                <h2 class="counter">6382</h2>
+                            </div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-3 col-md-6 col-xs-12 -->
+                    <div class="col-lg-3 col-md-6 col-xs-12">
+                        <div class="box-content bg-danger text-white">
+                            <div class="statistics-box with-icon">
+                                <i class="ico small fa fa-bug"></i>
+                                <p class="text text-white">FIXED BUG</p>
+                                <h2 class="counter">12564</h2>
+                            </div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-3 col-md-6 col-xs-12 -->
+                    <div class="col-lg-3 col-md-6 col-xs-12">
+                        <div class="box-content bg-warning text-white">
+                            <div class="statistics-box with-icon">
+                                <i class="ico small fa fa-usd"></i>
+                                <p class="text text-white">SALES</p>
+                                <h2 class="counter">2,637</h2>
+                            </div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-3 col-md-6 col-xs-12 -->
+                </div>
+                <!-- .row -->
+
+
+            </div>
+            <div class="tabcon">
+                <div class="row small-spacing">
+                    <div class="col-lg-4 col-xs-12">
+                        <div class="box-content">
+                            <h4 class="box-title">Last Reviews</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                <a href="#"
+                                   class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else there</a></li>
+                                    <li class="split"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <div class="review-list">
+                                <div class="review-item">
+                                    <div class="top">
+                                        <div class="name">John Doe</div>
+                                        <!-- /.name -->
+                                        <div class="date">10 min</div>
+                                        <!-- /.date -->
+                                        <div class="star-rating text-warning">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-half-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </div>
+                                        <!-- /.star-rating -->
+                                    </div>
+                                    <!-- /.top -->
+                                    <div class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit
+                                        facere.
+                                    </div>
+                                    <!-- /.desc -->
+                                </div>
+                                <!-- /.review-item -->
+                                <div class="review-item">
+                                    <div class="top">
+                                        <div class="name">Harry Halen</div>
+                                        <!-- /.name -->
+                                        <div class="date">15 min</div>
+                                        <!-- /.date -->
+                                        <div class="star-rating text-warning">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </div>
+                                        <!-- /.star-rating -->
+                                    </div>
+                                    <!-- /.top -->
+                                    <div class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit
+                                        facere.
+                                    </div>
+                                    <!-- /.desc -->
+                                </div>
+                                <!-- /.review-item -->
+                                <div class="review-item">
+                                    <div class="top">
+                                        <div class="name">Thomas Taylor</div>
+                                        <!-- /.name -->
+                                        <div class="date">30 min</div>
+                                        <!-- /.date -->
+                                        <div class="star-rating text-warning">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <!-- /.star-rating -->
+                                    </div>
+                                    <!-- /.top -->
+                                    <div class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit
+                                        facere.
+                                    </div>
+                                    <!-- /.desc -->
+                                </div>
+                                <!-- /.review-item -->
+                                <div class="review-item">
+                                    <div class="top">
+                                        <div class="name">Helen Candy</div>
+                                        <!-- /.name -->
+                                        <div class="date">1 hour ago</div>
+                                        <!-- /.date -->
+                                        <div class="star-rating text-warning">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </div>
+                                        <!-- /.star-rating -->
+                                    </div>
+                                    <!-- /.top -->
+                                    <div class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit
+                                        facere.
+                                    </div>
+                                    <!-- /.desc -->
+                                </div>
+                                <!-- /.review-item -->
+                                <div class="review-item">
+                                    <div class="top">
+                                        <div class="name">Henny Betty</div>
+                                        <!-- /.name -->
+                                        <div class="date">1 day ago</div>
+                                        <!-- /.date -->
+                                        <div class="star-rating text-warning">
+                                            <i class="fa fa-star-half-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </div>
+                                        <!-- /.star-rating -->
+                                    </div>
+                                    <!-- /.top -->
+                                    <div class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit
+                                        facere.
+                                    </div>
+                                    <!-- /.desc -->
+                                </div>
+                                <!-- /.review-item -->
+                            </div>
+                            <!-- /.review-list -->
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-4 col-xs-12 -->
+                    <div class="col-lg-4 col-xs-12">
+                        <div class="box-content">
+                            <h4 class="box-title">Activity</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                <a href="#"
+                                   class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else there</a></li>
+                                    <li class="split"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <div class="bar bg-primary">
+                                        <div class="dot bg-primary"></div>
+                                        <!-- /.dot -->
+                                    </div>
+                                    <!-- /.bar -->
+                                    <div class="content">
+                                        <div class="date">10 min</div>
+                                        <!-- /.date -->
+                                        <div class="text">
+                                            Harry has finished "Amaza HTML" task
+                                        </div>
+                                        <!-- /.text -->
+                                    </div>
+                                    <!-- /.content -->
+                                </div>
+                                <!-- /.activity-item -->
+                                <div class="activity-item">
+                                    <div class="bar bg-danger">
+                                        <div class="dot bg-danger"></div>
+                                        <!-- /.dot -->
+                                    </div>
+                                    <!-- /.bar -->
+                                    <div class="content">
+                                        <div class="date">15 min</div>
+                                        <!-- /.date -->
+                                        <div class="text">
+                                            You completed your task
+                                        </div>
+                                        <!-- /.text -->
+                                    </div>
+                                    <!-- /.content -->
+                                </div>
+                                <!-- /.activity-item -->
+                                <div class="activity-item">
+                                    <div class="bar bg-success">
+                                        <div class="dot bg-success"></div>
+                                        <!-- /.dot -->
+                                    </div>
+                                    <!-- /.bar -->
+                                    <div class="content">
+                                        <div class="date">30 min</div>
+                                        <!-- /.date -->
+                                        <div class="text">
+                                            New updated has been installed
+                                        </div>
+                                        <!-- /.text -->
+                                    </div>
+                                    <!-- /.content -->
+                                </div>
+                                <!-- /.activity-item -->
+                                <div class="activity-item">
+                                    <div class="bar bg-violet">
+                                        <div class="dot bg-violet"></div>
+                                        <!-- /.dot -->
+                                    </div>
+                                    <!-- /.bar -->
+                                    <div class="content">
+                                        <div class="date">1 hour ago</div>
+                                        <!-- /.date -->
+                                        <div class="text">Write some comments</div>
+                                        <!-- /.text -->
+                                    </div>
+                                    <!-- /.content -->
+                                </div>
+                                <!-- /.activity-item -->
+                                <div class="activity-item">
+                                    <div class="bar bg-warning">
+                                        <div class="dot bg-warning"></div>
+                                        <!-- /.dot -->
+                                    </div>
+                                    <!-- /.bar -->
+                                    <div class="content">
+                                        <div class="date">1 day ago</div>
+                                        <!-- /.date -->
+                                        <div class="text">4 friends request accepted</div>
+                                        <!-- /.text -->
+                                    </div>
+                                    <!-- /.content -->
+                                </div>
+                                <!-- /.activity-item -->
+                                <div class="activity-item">
+                                    <div class="bar bg-orange">
+                                        <div class="dot bg-orange"></div>
+                                        <!-- /.dot -->
+                                    </div>
+                                    <!-- /.bar -->
+                                    <div class="content">
+                                        <div class="date">6 days ago</div>
+                                        <!-- /.date -->
+                                        <div class="text">Betty has joined your team</div>
+                                        <!-- /.text -->
+                                    </div>
+                                    <!-- /.content -->
+                                </div>
+                                <!-- /.activity-item -->
+                                <div class="activity-item">
+                                    <div class="bar bg-orange">
+                                        <div class="dot bg-orange"></div>
+                                        <div class="last-dot bg-orange"></div>
+                                        <!-- /.dot -->
+                                    </div>
+                                    <!-- /.bar -->
+                                    <div class="content">
+                                        <div class="date">12 days ago</div>
+                                        <!-- /.date -->
+                                        <div class="text">Daisy has joined your team</div>
+                                        <!-- /.text -->
+                                    </div>
+                                    <!-- /.content -->
+                                </div>
+                                <!-- /.activity-item -->
+                            </div>
+                            <!-- /.activity-list -->
+                            <a href="#" class="activity-link">View all activity <i class="fa fa-angle-down"></i></a>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-4 col-xs-12 -->
+                    <div class="col-lg-4 col-xs-12">
+                        <div class="box-content js__todo_widget">
+                            <h4 class="box-title">Todo</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                <a href="#"
+                                   class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else there</a></li>
+                                    <li class="split"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <div class="todo-list js__todo_list">
+                                <div class="todo-item">
+                                    <div class="checkbox"><input type="checkbox" id="todo-1"><label for="todo-1">Task To
+                                            Do 1</label></div>
+                                    <!-- /.checkbox -->
+                                </div>
+                                <!-- /.todo-item -->
+                                <div class="todo-item">
+                                    <div class="checkbox primary"><input type="checkbox" id="todo-2"><label
+                                                for="todo-2">Task To Do 2</label></div>
+                                    <!-- /.checkbox -->
+                                </div>
+                                <!-- /.todo-item -->
+                                <div class="todo-item">
+                                    <div class="checkbox info"><input type="checkbox" checked id="todo-3"><label
+                                                for="todo-3">Task To Do 3</label></div>
+                                    <!-- /.checkbox -->
+                                </div>
+                                <!-- /.todo-item -->
+                                <div class="todo-item">
+                                    <div class="checkbox success"><input type="checkbox" id="todo-4"><label
+                                                for="todo-4">Task To Do 4</label></div>
+                                    <!-- /.checkbox -->
+                                </div>
+                                <!-- /.todo-item -->
+                                <div class="todo-item">
+                                    <div class="checkbox danger"><input type="checkbox" checked id="todo-5"><label
+                                                for="todo-5">Task To Do 5</label></div>
+                                    <!-- /.checkbox -->
+                                </div>
+                                <!-- /.todo-item -->
+                                <div class="todo-item">
+                                    <div class="checkbox success"><input type="checkbox" id="todo-6"><label
+                                                for="todo-6">Task To Do 6</label></div>
+                                    <!-- /.checkbox -->
+                                </div>
+                                <!-- /.todo-item -->
+                                <div class="todo-item">
+                                    <div class="checkbox success"><input type="checkbox" id="todo-7"><label
+                                                for="todo-7">Task To Do 7</label></div>
+                                    <!-- /.checkbox -->
+                                </div>
+                                <!-- /.todo-item -->
+                                <div class="todo-item">
+                                    <div class="checkbox success"><input type="checkbox" id="todo-8"><label
+                                                for="todo-8">Task To Do 8</label></div>
+                                    <!-- /.checkbox -->
+                                </div>
+                                <!-- /.todo-item -->
+                                <div class="todo-item">
+                                    <div class="checkbox success"><input type="checkbox" id="todo-9"><label
+                                                for="todo-9">Task To Do 9</label></div>
+                                    <!-- /.checkbox -->
+                                </div>
+                                <!-- /.todo-item -->
+                            </div>
+                            <!-- /.todo-list -->
+                            <div class="todo-form">
+                                <div class="input-group">
+                                    <input type="text" placeholder="Add new task" class="form-control js__todo_value">
+                                    <div class="input-group-btn">
+                                        <button type="button"
+                                                class="btn btn-success no-border text-white js__todo_button waves-effect waves-light">
+                                            <i class="fa fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.input-group-btn -->
+                                </div>
+                                <!-- /.input-group -->
+                            </div>
+                            <!-- /.todo-form -->
+                        </div>
+                        <!-- /.box-content .js__todo_form -->
+                    </div>
+                    <!-- /.col-lg-4 col-xs-12 -->
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                    <div class="col-lg-6 col-xs-12">
+                        <div class="box-content">
+                            <div id="calendar-widget"></div>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-6 col-xs-12 -->
+                    <div class="col-lg-6 col-xs-12">
+                        <div class="box-content">
+                            <h4 class="box-title">Purchases</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                <a href="#"
+                                   class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Product</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else there</a></li>
+                                    <li class="split"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <table class="table table-striped margin-bottom-10">
+                                <thead>
+                                <tr>
+                                    <th style="width:40%;">Product</th>
+                                    <th>Price</th>
+                                    <th>Date</th>
+                                    <th>State</th>
+                                    <th style="width:5%;"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Amaza Themes</td>
+                                    <td>$71</td>
+                                    <td>Nov 12,2016</td>
+                                    <td class="text-success">Completed</td>
+                                    <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td>Macbook</td>
+                                    <td>$142</td>
+                                    <td>Nov 10,2016</td>
+                                    <td class="text-danger">Cancelled</td>
+                                    <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td>Samsung TV</td>
+                                    <td>$200</td>
+                                    <td>Nov 01,2016</td>
+                                    <td class="text-warning">Pending</td>
+                                    <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td>Ninja Admin</td>
+                                    <td>$200</td>
+                                    <td>Oct 28,2016</td>
+                                    <td class="text-warning">Pending</td>
+                                    <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td>Galaxy Note 5</td>
+                                    <td>$200</td>
+                                    <td>Oct 28,2016</td>
+                                    <td class="text-success">Completed</td>
+                                    <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td>CleanUp Themes</td>
+                                    <td>$71</td>
+                                    <td>Oct 22,2016</td>
+                                    <td class="text-success">Completed</td>
+                                    <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td>Facebook WP Plugin</td>
+                                    <td>$10</td>
+                                    <td>Oct 15,2016</td>
+                                    <td class="text-success">Completed</td>
+                                    <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td>Iphone 7</td>
+                                    <td>$100</td>
+                                    <td>Oct 12,2016</td>
+                                    <td class="text-warning">Pending</td>
+                                    <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td>Nova House</td>
+                                    <td>$100</td>
+                                    <td>Oct 12,2016</td>
+                                    <td class="text-warning">Pending</td>
+                                    <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td>Repair Cars</td>
+                                    <td>$35</td>
+                                    <td>Oct 12,2016</td>
+                                    <td class="text-warning">Pending</td>
+                                    <td><a href="#"><i class="fa fa-plus-circle"></i></a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <!-- /.table -->
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-lg-6 col-xs-12 -->
+                </div>
+            </div>
+            <!-- /.row small-spacing -->
+
+            <div class="tabcon">
+                fasdk
+            </div>
+
+            <div class="tabcon">
+                ttsdfasdfkjasd
+            </div>
+            <div class="tabcon">
+                <div class="row small-spacing">
+                    <div class="col-xs-6">
+                        <div class="box-content">
+                            <h4 class="box-title">Cấu hình Bot</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                <a href="#"
+                                   class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Action</a></li>
+
+                                </ul>
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <div class="switch primary margin-bottom-20"><input type="checkbox" id="isDemo"
+                                                                                <% if(ThongSo.isDemo){ %>checked
+                                        <% } %>
+                                ><label
+                                        for="isDemo"><strong>Chế Độ chạy ảo *</strong></label></div>
+                            <table class="table table-bordered table-striped">
+                                <tbody>
+                                <tr>
+                                    <td>Đổi Cấu hình *</td>
+                                    <td><a href="#" id="listch" data-type="select" data-pk="1"
+                                           data-value="<%= ThongSo.id %>"
+                                           data-title="Đổi cấu hình"></a></td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 25%">Tên Cấu hình</td>
+                                    <td><a href="#" id="name" data-type="text" data-pk="1"
+                                           data-title="Tên cấu hình"><%= ThongSo.name %></a></td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>Loại TradeBin*</td>
+                                    <td><a href="#" id="tradeBin" data-type="select" data-pk="1"
+                                           data-value="<%= ThongSo.tradeBin %>"
+                                           data-title="chọn tradeBin"></a></td>
+                                </tr>
+
+
+                                <!--<tr>-->
+                                <!--<td>Checklist</td>-->
+                                <!--<td><a href="#" id="fruits" data-type="checklist" data-value="2,3"-->
+                                <!--data-title="Select fruits"></a></td>-->
+                                <!--</tr>-->
+                                <tr>
+                                    <td>id key *</td>
+                                    <td><a href="#" id="key" data-type="text" data-pk="1"
+                                           data-placeholder="Nhập id key"
+                                           data-title="Nhập key"><%= ThongSo.api.key %></a></td>
+                                </tr>
+
+                                <tr>
+                                    <td>api key*</td>
+                                    <td><a href="#" id="secret" data-type="text" data-pk="1"
+                                           data-placeholder="Nhập api key"
+                                           data-title="Nhập api secret"><%= ThongSo.api.secret %></a></td>
+                                </tr>
+                                <tr>
+                                    <td>Margin bet</td>
+                                    <td><a href="#" id="Marginbet" data-type="text" data-pk="1"
+                                           data-placeholder="Nhập id key"
+                                           data-title="Nhập key"><%= ThongSo.Marginbet %></a></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Số lần Bơm</td>
+                                    <td><a href="#" id="LimitLoss" data-type="number" data-pk="1"
+                                           data-placeholder="Nhập id key"
+                                           data-title="Nhập key"><%= ThongSo.LimitLoss %></a></td>
+                                </tr>
+                                <tr>
+                                    <td>$ cần bơm</td>
+                                    <td><a href="#" id="PullLoss" data-type="number" data-pk="1"
+                                           data-placeholder="Nhập id key"
+                                           data-title="Nhập key"><%= ThongSo.PullLoss %></a></td>
+                                </tr>
+                                <tr>
+                                    <td> $ cần cắt lỗ</td>
+                                    <td><a href="#" id="CutLoss" data-type="number" data-pk="1"
+                                           data-placeholder="Nhập id key"
+                                           data-title="Nhập key"><%= ThongSo.CutLoss %></a></td>
+                                </tr>
+                                <tr>
+                                    <td> $ cần cắt lời</td>
+                                    <td><a href="#" id="CutProfit" data-type="number" data-pk="1"
+                                           data-placeholder="Nhập id key"
+                                           data-title="Nhập key"><%= ThongSo.CutProfit %></a></td>
+                                </tr>
+                                <tr>
+                                    <td>& Deviation</td>
+                                    <td><a href="#" id="Deviation" data-type="number" data-pk="1"
+                                           data-placeholder="Nhập id key"
+                                           data-title="Nhập key"><%= ThongSo.Deviation %></a></td>
+                                </tr>
+                                <tr>
+                                    <td>Ghi chú</td>
+                                    <td><a href="#" id="note" data-type="textarea" data-pk="1"
+                                           data-placeholder="Note here..."
+                                           data-title="Enter comments"><%= ThongSo.note %></a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <button type="button" id="buttonluucauhinh"
+                                    class="btn btn-primary waves-effect waves-light">Lưu
+                            </button>
+                            <button type="button" id="buttonnhanbancauhinh"
+                                    class="btn btn-primary waves-effect waves-light">Nhân bản
+                            </button>
+                            <button type="button" id="buttonxoacauhinh"
+                                    class="btn btn-red waves-effect waves-light">Xóa
+                            </button>
+                            <button type="button" id="buttonrender"
+                                    class="btn btn-red waves-effect waves-light">Update Chiến thuật
+                            </button>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="box-content">
+                            <h4 class="box-title">Cấu hình Bot Chat</h4>
+                            <!-- /.box-title -->
+                            <div class="dropdown js__drop_down">
+                                <a href="#"
+                                   class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Action</a></li>
+
+                                </ul>
+                                <!-- /.sub-menu -->
+                            </div>
+                            <!-- /.dropdown js__dropdown -->
+                            <div class="switch primary margin-bottom-20"><input type="checkbox" id="switch-chatbot"
+                                                                                checked><label
+                                        for="switch-chatbot"><strong>Bật Botchat</strong></label></div>
+                            <table class="table table-bordered table-striped">
+                                <tbody>
+
+                                <tr>
+                                    <td style="width: 25%">Tên đăng nhập</td>
+                                    <td><a href="#" id="username" data-type="text" data-pk="1"
+                                           data-title="Tên Đăng nhập"></a></td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 25%">Mật khẩu</td>
+                                    <td><a href="#" id="password" data-type="password" data-pk="1"
+                                           data-title="Nhập password"></a></td>
+                                </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.box-content -->
+                    </div>
+                    <!-- /.col-xs-12 -->
+                </div>
+                <script>
+
+
+                    (function ($) {
+                        "use strict";
+                        $("#buttonrender").on("click",function(){
+                            swal({
+                                title: "cập nhật chiến thuật?",
+                                text: "Bạn chắc với sự thay đổi của mình!",
+                                type: "warning",
+                                showCancelButton: true,
+                                confirmButtonColor: "#DD6B55",
+                                confirmButtonText: "Vâng!",
+                                cancelButtonText: "Không,!",
+                                closeOnConfirm: true,
+                                closeOnCancel: true,
+                                confirmButtonColor: '#f60e0e',
+                            }, function (isConfirm) {
+                                if (isConfirm) {
+                                  socket.emit("UpdateChienThuat","sdfsadf");       }});
+                        })
+                        $("#buttonluucauhinh").on("click", function () {
+                            swal({
+                                title: "Lưu thay đổi?",
+                                text: "Bạn chắc với sự thay đổi của mình!",
+                                type: "warning",
+                                showCancelButton: true,
+                                confirmButtonColor: "#DD6B55",
+                                confirmButtonText: "Vâng!",
+                                cancelButtonText: "Không,!",
+                                closeOnConfirm: true,
+                                closeOnCancel: true,
+                                confirmButtonColor: '#f60e0e',
+                            }, function (isConfirm) {
+                                if (isConfirm) {
+                                    ThongSo.Marginbet = parseInt($("#Marginbet").editable('getValue').Marginbet);
+                                    ThongSo.PullLoss = parseInt($("#PullLoss").editable('getValue').PullLoss);
+                                    ThongSo.Deviation = parseInt($("#Deviation").editable('getValue').Deviation);
+                                    ThongSo.CutProfit = parseInt($("#CutProfit").editable('getValue').CutProfit);
+                                    ThongSo.name = $("#name").editable('getValue').name;
+                                    ThongSo.note = $("#note").editable('getValue').note;
+                                    ThongSo.CutLoss = parseInt($("#CutLoss").editable('getValue').CutLoss);
+                                    ThongSo.LimitLoss = parseInt($("#LimitLoss").editable('getValue').LimitLoss);
+                                    ThongSo.tradeBin = $("#tradeBin").editable('getValue').tradeBin;
+                                    ThongSo.api.key = $("#key").editable('getValue').key;
+                                    ThongSo.api.secret = $("#secret").editable('getValue').secret;
+                                    console.log(ThongSo);
+                                    // alert(JSON.stringify($("#PullLoss").editable('getValue')));
+                                    socket.emit("UpdateThongSo", ThongSo);
+                                    swal({
+                                        title: "Done!",
+                                        text: "Đã lưu thay đổi",
+                                        type: "success",
+                                        confirmButtonColor: '#304ffe',
+                                    });
+                                } else {
+                                    // swal({
+                                    //     title : "Cancelled",
+                                    //     text: "Your imaginary file is safe :)",
+                                    //     type: "error",
+                                    //     confirmButtonColor: '#f60e0e',
+                                    // });
+                                }
+                            });
+                        })
+                        $("#buttonxoacauhinh").on("click", function () {
+                            swal({
+                                title: "Xóa cấu hình?",
+                                text: "Bạn chắc mình muốn xóa!",
+                                type: "warning",
+                                showCancelButton: true,
+                                confirmButtonColor: "#DD6B55",
+                                confirmButtonText: "Vâng!",
+                                cancelButtonText: "Không,!",
+                                closeOnConfirm: true,
+                                closeOnCancel: true,
+                                confirmButtonColor: '#f60e0e',
+                            }, function (isConfirm) {
+                                if (isConfirm) {
+                                    console.log(ThongSo.id);
+                                    socket.emit("DeleteThongSo", ThongSo.id);
+                                    swal({
+                                        title: "Done!",
+                                        text: "Đã lưu thay đổi",
+                                        type: "success",
+                                        confirmButtonColor: '#304ffe',
+                                    });
+                                } else {
+                                    // swal({
+                                    //     title : "Cancelled",
+                                    //     text: "Your imaginary file is safe :)",
+                                    //     type: "error",
+                                    //     confirmButtonColor: '#f60e0e',
+                                    // });
+                                }
+                            });
+                        })
+                        $("#buttonnhanbancauhinh").on("click", function () {
+                            ThongSo.id = new Date().getTime() + "idclient";
+                            ThongSo.Marginbet = parseInt($("#Marginbet").editable('getValue').Marginbet);
+                            ThongSo.PullLoss = parseInt($("#PullLoss").editable('getValue').PullLoss);
+                            ThongSo.Deviation = parseInt($("#Deviation").editable('getValue').Deviation);
+                            ThongSo.CutProfit = parseInt($("#CutProfit").editable('getValue').CutProfit);
+                            ThongSo.name = $("#name").editable('getValue').name;
+                            ThongSo.note = $("#note").editable('getValue').note;
+                            ThongSo.CutLoss = parseInt($("#CutLoss").editable('getValue').CutLoss);
+                            ThongSo.LimitLoss = parseInt($("#LimitLoss").editable('getValue').LimitLoss);
+                            ThongSo.tradeBin = $("#tradeBin").editable('getValue').tradeBin;
+                            ThongSo.api.key = $("#key").editable('getValue').key;
+                            ThongSo.api.secret = $("#secret").editable('getValue').secret;
+                            console.log(ThongSo);
+                            // alert(JSON.stringify($("#PullLoss").editable('getValue')));
+                            socket.emit("NewThongSo", ThongSo);
+                            swal({
+                                title: "Done!",
+                                text: "Đã lưu thay đổi",
+                                type: "success",
+                                confirmButtonColor: '#304ffe',
+                            });
+                        })
+                        $(document).ready(function () {
+                            $('#name').editable({
+                                type: 'text',
+                                pk: 1,
+                                name: 'name',
+                                title: 'Enter Name',
+                                mode: 'inline'
+                            });
+                            $('#username').editable({
+                                type: 'text',
+                                pk: 1,
+                                name: 'UserName',
+                                title: 'Enter Name',
+                                mode: 'inline'
+                            });
+
+
+                            $('#key').editable({
+                                showbuttons: 'right',
+                                mode: 'inline'
+                            });
+
+                            $('#secret').editable({
+                                showbuttons: 'right',
+                                mode: 'inline'
+                            });
+                            $('#CutLoss').editable({
+                                showbuttons: 'right',
+                                mode: 'inline'
+                            });
+                            $('#CutProfit').editable({
+                                showbuttons: 'right',
+                                mode: 'inline'
+                            });
+
+                            $('#Deviation').editable({
+                                showbuttons: 'right',
+                                mode: 'inline'
+                            });
+                            $('#PullLoss').editable({
+                                showbuttons: 'right',
+                                mode: 'inline'
+                            });
+                            $('#LimitLoss').editable({
+                                showbuttons: 'right',
+                                mode: 'inline'
+                            });
+
+                            $('#Marginbet').editable({
+                                showbuttons: 'right',
+                                mode: 'inline'
+                            });
+
+                            <%
+                            var Art = []
+
+                            ArThongSo.forEach((thongso) => {
+                                Art.push({value: thongso.id, text: thongso.name});
+                            }) %>
+                            $('#listch').editable({
+                                prepend: "chưa chọn",
+                                mode: 'inline',
+                                selected: 1,
+                                source:
+
+                                <%- JSON.stringify(Art) %>
+                                ,
+
+                                display: function (value, sourceData) {
+                                    var colors = {"": "#98a6ad", 1: "#5fbeaa", 2: "#5d9cec"},
+                                        elem = $.grep(sourceData, function (o) {
+                                            return o.value == value;
+                                        });
+
+                                    if (elem.length) {
+                                        $(this).text(elem[0].text).css("color", colors[value]);
+                                    } else {
+                                        $(this).empty();
+                                    }
+                                }
+                            });
+                            $('#listch').on('save', function (e, params) {
+                                console.log("thảy đổi thông ssos" + params.newValue)
+                                socket.emit("ChangeThongSo", params.newValue);
+                            });
+                            // $("#listch").onchange(function(){
+                            //     onchange: function(data) {
+                            //
+                            //     }
+                            // });
+                            //huyhuyhuy
+                            $('#tradeBin').editable({
+                                mode: 'inline',
+                                source: [
+                                    {value: "tradeBin1m", text: '1 phút'},
+                                    {value: "tradeBin5m", text: '5 phút'},
+                                    {value: "tradeBin1h", text: '1 giờ'},
+                                    {value: "tradeBin1d", text: '1 ngày'}
+                                ],
+
+                                display: function (value, sourceData) {
+                                    var colors = {"": "#98a6ad", 1: "#5fbeaa", 2: "#5d9cec"},
+                                        elem = $.grep(sourceData, function (o) {
+                                            return o.value == value;
+                                        });
+
+                                    if (elem.length) {
+                                        $(this).text(elem[0].text).css("color", colors[value]);
+                                    } else {
+                                        $(this).empty();
+                                    }
+                                }
+                            });
+                            $("#note").editable({mode: 'inline', showbuttons: "bottom"})
+                            //
+                            //
+                            // $('#fruits').editable({
+                            //     pk: 1,
+                            //     limit: 3,
+                            //     source: [
+                            //         {value: 1, text: 'banana'},
+                            //         {value: 2, text: 'peach'},
+                            //         {value: 3, text: 'apple'},
+                            //         {value: 4, text: 'watermelon'},
+                            //         {value: 5, text: 'orange'}
+                            //     ],
+                            //     mode: 'inline'
+                            // });
+                        });
+
+                        $("#isDemo").on("change", function () {
+                            ThongSo.isDemo = $(this).prop("checked");
+                        });
+
+
+                    })(jQuery);
+                </script>
+            </div>
+            <div class="tabcon">
+
+                <li><a href="https://www.facebook.com/thienthannho.canhdongxam">about me</a></li>
+
+                <li><a href="https://www.facebook.com/thienthannho.canhdongxam">about me</a></li>
+            </div>
+            <footer class="footer" >
+                <ul class="list-inline">
+                    <li>2018 © HuyQuanSu.</li>
+                    <li><a href="https://www.facebook.com/thienthannho.canhdongxam">about me</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+            </footer>
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var $wrapper = $('.tab-wrapper'),
+            $allTabs = $wrapper.find('.tab-content > div'),
+            $tabMenu = $wrapper.find('.tab-menu li'),
+            $line = $('<div class="line"></div>').appendTo($tabMenu);
+
+        $allTabs.not(':first-of-type').hide();
+        $tabMenu.filter(':first-of-type').find(':first').width('100%')
+
+        $tabMenu.each(function (i) {
+            $(this).attr('data-tab', 'tab' + i);
+        });
+
+        $allTabs.each(function (i) {
+            $(this).attr('data-tab', 'tab' + i);
+        });
+
+        $tabMenu.on('click', function () {
+
+            var dataTab = $(this).data('tab'),
+                $getWrapper = $(this).closest($wrapper);
+
+            $getWrapper.find($tabMenu).removeClass('activehuy');
+            $(this).addClass('activehuy');
+            $("#page-title").html($(".activehuy").attr("tt"))
+            $getWrapper.find('.line').width(0);
+            $(this).find($line).animate({'width': '100%'}, 'fast');
+            $getWrapper.find($allTabs).hide(200);
+            $getWrapper.find($allTabs).filter('[data-tab=' + dataTab + ']').show(200);
+        });
+
+    });//end ready
+</script>
+<style>
+    #editor-modal {
+        background-color: #312c2c96;
+    }
+
+    .modal-dialog {
+        margin-top: 140px;
+    }
+
+    .modal-backdrop {
+        z-index: 1;
+    }
+
+    .footable-filtering {
+        display: none;
+    }
+</style>
+
+
+</body>
+</html>
